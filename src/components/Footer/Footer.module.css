@@ -178,3 +178,21 @@
 .accept {
     margin-top: 13px
 }
+
+@media screen and (max-width: 1200px) {
+    .footer__block {
+        width: 225px;
+    }
+    .footer__block_ellipse {
+        margin-top: 25px;
+    }
+    .footer__top {
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .footer__bottom {
+        gap: 140px;
+    }
+}
