@@ -1,15 +1,15 @@
 import {FC} from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Categories.module.css';
-import Banner from './../../assets/images/banner.png';
+import Banner from './../../../assets/images/banner.png';
 
 const Categories: FC = () => {
     return (
         <div className={s.categories}>
             <h3 className={s.title}>Categories</h3>
             <div className={s.categories__list}>
-                <NavLink to='House-Plants' className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Potter Plants<span>(33)</span></NavLink>
-                <NavLink to='Potter-Plants' className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>House Plants<span>(12)</span></NavLink>
+                <NavLink to='House-Plants' className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>House Plants<span>(33)</span></NavLink>
+                <NavLink to='Potter-Plants' className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Potter Plants<span>(12)</span></NavLink>
                 <NavLink to='Seeds' className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Seeds<span>(65)</span></NavLink>
                 <NavLink to='Small-Plants' className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Small Plants<span>(39)</span></NavLink>
                 <NavLink to='Big-Plants' className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Big Plants<span>(23)</span></NavLink>

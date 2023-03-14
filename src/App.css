@@ -28,6 +28,11 @@ main {
     flex: 1 1 auto;
 }
 
+
+.main__center {
+    display: flex;
+}
+
 h1 {
     color:  #3D3D3D;
     font-weight: 900;

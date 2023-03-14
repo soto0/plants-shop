@@ -1,5 +1,6 @@
 import {FC} from 'react';
-import Categories from '../components/Categories/Categories';
+import Categories from '../components/Main/Categories/Categories';
+import Goods from '../components/Main/Goods/Goods';
 import Slider from '../components/Main/Slider/Slider';
 
 const MainPage: FC = () => {
@@ -7,7 +8,10 @@ const MainPage: FC = () => {
         <main>
             <div className="container">
                 <Slider />
-                <Categories />
+                <div className="main__center">
+                    <Categories />
+                    <Goods />
+                </div>
             </div>
         </main>
     );

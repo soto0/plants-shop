@@ -1,0 +1,39 @@
+.goods {
+    width: 100%;
+    margin-top: 46px;
+    margin-left: 50px;
+}
+
+.goods__menu {
+    display: flex;
+    gap: 37px;
+}
+
+.goods__menu_item {
+    font-size: 15px;
+}
+
+.goods__menu_item_active {
+    font-weight: 700;
+    color: #46A358;
+    border-bottom: 3px solid #46A358;;
+}
+
+.sort__block {
+    margin-left: auto;
+    display: flex;
+    font-size: 15px;
+}
+
+.sort__selector {
+    margin-left: 8px;
+}
+
+.sort__selector::after {
+    margin-left: 8px;
+    content: url('./../../../assets/images/arrow.svg');
+}
+
+.products {
+    margin-top: 31px;
+}

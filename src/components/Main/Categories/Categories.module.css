@@ -1,5 +1,5 @@
 .categories {
-    max-width: 310px;
+    min-width: 310px;
     margin-top: 46px;
     padding: 14px 18px;
     overflow: hidden;
