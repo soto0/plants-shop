@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('CeraPro-Regular.eot');
+    src: local('Cera Pro Regular'), local('CeraPro-Regular'),
+        url('CeraPro-Regular.eot?#iefix') format('embedded-opentype'),
+        url('CeraPro-Regular.woff') format('woff'),
+        url('CeraPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('CeraPro-Light.eot');
+    src: local('Cera Pro Light'), local('CeraPro-Light'),
+        url('CeraPro-Light.eot?#iefix') format('embedded-opentype'),
+        url('CeraPro-Light.woff') format('woff'),
+        url('CeraPro-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('CeraPro-Black.eot');
+    src: local('Cera Pro Black'), local('CeraPro-Black'),
+        url('CeraPro-Black.eot?#iefix') format('embedded-opentype'),
+        url('CeraPro-Black.woff') format('woff'),
+        url('CeraPro-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('CeraPro-Medium.eot');
+    src: local('Cera Pro Medium'), local('CeraPro-Medium'),
+        url('CeraPro-Medium.eot?#iefix') format('embedded-opentype'),
+        url('CeraPro-Medium.woff') format('woff'),
+        url('CeraPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('CeraPro-Bold.eot');
+    src: local('Cera Pro Bold'), local('CeraPro-Bold'),
+        url('CeraPro-Bold.eot?#iefix') format('embedded-opentype'),
+        url('CeraPro-Bold.woff') format('woff'),
+        url('CeraPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('CeraPro-Thin.eot');
+    src: local('Cera Pro Thin'), local('CeraPro-Thin'),
+        url('CeraPro-Thin.eot?#iefix') format('embedded-opentype'),
+        url('CeraPro-Thin.woff') format('woff'),
+        url('CeraPro-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
