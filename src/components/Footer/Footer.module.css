@@ -22,7 +22,7 @@
 
 .footer__block_ellipse {
     top: 0;
-    margin-top: 50px;
+    margin-top: 25px;
     position: absolute;
     width: 74px;
     height: 74px;
@@ -182,9 +182,6 @@
 @media screen and (max-width: 1200px) {
     .footer__block {
         width: 225px;
-    }
-    .footer__block_ellipse {
-        margin-top: 25px;
     }
     .footer__top {
         gap: 20px;

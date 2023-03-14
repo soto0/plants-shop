@@ -1,4 +1,5 @@
 import {FC} from 'react';
+import Categories from '../components/Categories/Categories';
 import Slider from '../components/Main/Slider/Slider';
 
 const MainPage: FC = () => {
@@ -6,6 +7,7 @@ const MainPage: FC = () => {
         <main>
             <div className="container">
                 <Slider />
+                <Categories />
             </div>
         </main>
     );

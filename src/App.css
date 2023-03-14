@@ -79,6 +79,10 @@ footer {
     margin-top: 44px;
 }
 
+.filter__button {
+    margin-top: 16px;
+    padding: 8px 26px;
+}
 
 .login {
     margin-left: 5px;
@@ -93,4 +97,33 @@ footer {
 
 .swiper-pagination-bullet-active {
     background: #46A358 !important;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: solid 3px white;
+    background: #46A358;
+    cursor: pointer;
+    opacity: 1;
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.price__count {
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+.price__count span {
+    font-weight: 700;
+    color: #46A358;
 }
