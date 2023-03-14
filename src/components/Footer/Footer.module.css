@@ -1,7 +1,7 @@
 .footer__top {
     padding: 24px 20px;
     display: flex;
-    max-width: 1720px;
+    max-width: 1480px;
     margin: 0 auto;
 }
 
@@ -90,9 +90,9 @@
 }
 
 .footer__center {
-    max-width: 1720px;
+    max-width: 1480px;
     margin: 0 auto;
-    padding: 27px 20px 20px 30px;
+    padding: 27px 20px 20px 20px;
     display: flex;
     gap: 90px;
     align-items: center;
@@ -147,7 +147,7 @@
 }
 
 .footer__bottom {
-    max-width: 1720px;
+    max-width: 1480px;
     margin: 0 auto;
 }
 

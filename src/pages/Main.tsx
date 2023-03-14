@@ -1,9 +1,14 @@
 import {FC} from 'react';
+import Slider from '../components/Main/Slider/Slider';
 
-const Main: FC = () => {
+const MainPage: FC = () => {
     return (
-        <main></main>
+        <main>
+            <div className="container">
+                <Slider />
+            </div>
+        </main>
     );
 };
 
-export default Main;
+export default MainPage;

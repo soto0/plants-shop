@@ -25,8 +25,15 @@ body,
 }
 
 main {
-    display: flex;
     flex: 1 1 auto;
+}
+
+h1 {
+    color:  #3D3D3D;
+    font-weight: 900;
+    font-size: 70px;
+    line-height: 70px;
+    text-transform: uppercase;
 }
 
 h3 {
@@ -35,7 +42,7 @@ h3 {
 }
 
 .container {
-    max-width: 1720px;
+    max-width: 1480px;
     padding: 0 20px;
     margin: 0 auto;
 }
@@ -68,10 +75,22 @@ footer {
     border-radius: 0 6px 6px 0;
 }
 
+.slider__button {
+    margin-top: 44px;
+}
+
 
 .login {
     margin-left: 5px;
     display: flex;
     align-items: center;
     gap: 4px;
+}
+
+.swiper-pagination-bullet {
+    background: #46A3584D !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: #46A358 !important;
 }

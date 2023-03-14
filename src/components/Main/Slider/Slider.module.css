@@ -1,0 +1,36 @@
+.slide {
+    margin-top: 12px;
+    padding: 0 40px;
+    display: flex;
+    background: linear-gradient(97.77deg, rgba(245, 245, 245, 0.5) -23.46%, rgba(245, 245, 245, 0.5) 107.51%);
+}
+
+.slider__left {
+    padding-top: 68px
+}
+
+.slider__subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.slider__title span {
+    margin-top: 7px;
+    color: #46A358;
+}
+
+.slider__text {
+    font-weight: 400;
+    color: #727272;
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 10px;
+    max-width: 557px;
+}
+
+.slider__right {
+    margin-left: auto;
+    margin-top: -50px;
+}

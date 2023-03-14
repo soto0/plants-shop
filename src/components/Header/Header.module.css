@@ -1,6 +1,5 @@
 header div:nth-child(1) {
     padding: 26px 20px 17.7px 20px;
-    border-bottom: 0.3px solid rgba(70, 163, 88, 0.5);
     display: flex;
     align-items: center;
 }
