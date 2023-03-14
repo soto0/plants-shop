@@ -3,10 +3,22 @@ import s from './ProductCard.module.css';
 import Product from './../../../assets/images/product.png';
 import { Link } from 'react-router-dom';
 
-const ProductCard: FC = () => {
+interface ProductCardProps {
+    Category: string,
+    Id: number,
+    New: boolean,
+    Price: number,
+    Sale: number,
+    SalePrice: number,
+    Size: string,
+    Title: string
+};
+
+const ProductCard: FC<ProductCardProps> = (props: ProductCardProps) => {
     return (
         <Link to='' className={s.product}>
             <div className={s.product__top}>
+                {props.Sale !== 0 ? <p className={s.sale}>{props.Sale}% OFF</p> : undefined}
                 <img src={Product} alt="product" className={s.product__icon} />
                 <div className={s.product__menu}>
                     <svg className={s.product__menu_item} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,8 +33,11 @@ const ProductCard: FC = () => {
                 </div>
             </div>
             <div className={s.product__bottom}>
-                <p className={s.product__title}>Barberton Daisy</p>
-                <p className={s.product__price}>$119.00</p>
+                <p className={s.product__title}>{props.Title}</p>
+                <div className={s.price__block}>
+                {props.SalePrice ? <p className={s.product__sale_price}>$ {props.SalePrice + '.00'}</p> : undefined}
+                <p className={props.SalePrice ? s.product__price_old : s.product__price}>${props.Price + '.00'}</p>    
+                </div>
             </div>
         </Link>
     );

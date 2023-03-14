@@ -36,4 +36,8 @@
 
 .products {
     margin-top: 31px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 70px 0px;
+    justify-content: space-between
 }
