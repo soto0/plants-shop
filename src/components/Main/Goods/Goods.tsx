@@ -5,22 +5,25 @@ import ProductCard from './../ProductCard/ProductCard';
 import { useActions } from '../../../hooks/useActions';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 
-const Goods: FC = () => {
+interface GoodsProps {
+    Plants: [],
+    GetPlants: any
+}
+
+const Goods: FC<GoodsProps> = (props: GoodsProps) => {
     const [ selectorActive, setSelectorActive]  = useState(false);
     const [ sortValue, setSortValue ] = useState<any>();
-    const { Plants } = useTypedSelector(state => state.Plants);
     const url = window.location.pathname;
-    const { getPlants } = useActions();
 
     useEffect(() => {
         const checkUrl = () => {
             switch (url) {
                 case '/':
-                    return getPlants();
+                    return props.GetPlants();
                 case '/New-Arrivals':
-                    return getPlants(true, undefined);
+                    return props.GetPlants(true, undefined);
                 case '/Sale':
-                    return getPlants(undefined, true);
+                    return props.GetPlants(undefined, true);
                 default:
                     return undefined
             }
@@ -30,15 +33,15 @@ const Goods: FC = () => {
     }, [url]);
 
     let getAllPlants = () => {
-        getPlants();
+        props.GetPlants();
     };
 
     let getNewArrivals = () => {
-        getPlants(true, undefined);
+        props.GetPlants(true, undefined);
     };
 
     let getSale = () => {
-        getPlants(undefined, true);
+        props.GetPlants(undefined, true);
     };
 
     let selectorToggle = () => {
@@ -50,17 +53,17 @@ const Goods: FC = () => {
         setSelectorActive(false);
         
         if (event.target.innerText === 'Default Sorting') {
-            Plants.sort((a: any, b: any) => {
+            props.Plants.sort((a: any, b: any) => {
                 return a.id - b.id
                         
             });
         } else if (event.target.innerText === 'By price increase') {
-            Plants.sort((a: any, b: any) => {
+            props.Plants.sort((a: any, b: any) => {
                 return a.price - b.price
                         
             });
         } else if (event.target.innerText === 'By price reduction') {
-            Plants.sort((a: any, b: any) => {
+            props.Plants.sort((a: any, b: any) => {
                 return a.price - b.price
                         
             }).reverse();
@@ -89,7 +92,7 @@ const Goods: FC = () => {
             <div className={s.products}>
                 {
                    
-                   Plants.map((plant: any) => {
+                   props.Plants.map((plant: any) => {
                         return (
                             <ProductCard
                                 Category={plant.category}

@@ -24,7 +24,8 @@
 }
 
 .categories__link_active,
-.categories__link_active span  {
+.categories__link_active span,
+.size_active  {
     font-weight: 700;
     color: #46A358;
 }
@@ -61,7 +62,8 @@
 
 .size,
 .categories__link,
-.categories__link_active {
+.categories__link_active,
+.size_active {
     display: flex;
     justify-content: space-between;
 }
