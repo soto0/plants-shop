@@ -1,5 +1,5 @@
-import * as AllPlantsActionCreators from './AllPlants';
+import * as PlantsActionCreators from './Plants';
 
 export default {
-    ...AllPlantsActionCreators,
+    ...PlantsActionCreators,
 };

@@ -8,7 +8,8 @@ interface ProductCardProps {
     Id: number,
     New: boolean,
     Price: number,
-    Sale: number,
+    Sale: boolean,
+    SaleInterest: number,
     SalePrice: number,
     Size: string,
     Title: string
@@ -18,7 +19,7 @@ const ProductCard: FC<ProductCardProps> = (props: ProductCardProps) => {
     return (
         <Link to='' className={s.product}>
             <div className={s.product__top}>
-                {props.Sale !== 0 ? <p className={s.sale}>{props.Sale}% OFF</p> : undefined}
+                {props.SaleInterest !== 0 ? <p className={s.sale}>{props.Sale}% OFF</p> : undefined}
                 <img src={Product} alt="product" className={s.product__icon} />
                 <div className={s.product__menu}>
                     <svg className={s.product__menu_item} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

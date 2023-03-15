@@ -1,8 +1,9 @@
+
 import { combineReducers } from "redux";
-import { AllPlantsReducer } from "./AllPlants";
+import { PlantsReducer } from "./Plants";
 
 export const rootReducer = combineReducers({
-    AllPlants: AllPlantsReducer
+    Plants: PlantsReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>

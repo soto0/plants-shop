@@ -7,7 +7,8 @@
             "category": "Small Plants",
             "size": "Small",
             "new": false,
-            "sale": 0
+            "sale": false,
+            "saleInterest": 0
         },
         {
             "id": 2,
@@ -16,7 +17,8 @@
             "category": "Potter Plants",
             "size": "Large",
             "new": false,
-            "sale": 0
+            "sale": false,
+            "saleInterest": 0
         },
         {
             "id": 3,
@@ -26,7 +28,8 @@
             "category": "Potter Plants",
             "size": "Medium",
             "new": false,
-            "sale": 13
+            "sale": true,
+            "saleInterest": 13
         },
         {
             "id": 4,
@@ -35,7 +38,8 @@
             "category": "Big Plants",
             "size": "Large",
             "new": false,
-            "sale": 0
+            "sale": false,
+            "saleInterest": 0
         },
         {
             "id": 5,
@@ -44,7 +48,8 @@
             "category": "House Plants",
             "size": "Large",
             "new": true,
-            "sale": 0
+            "sale": false,
+            "saleInterest": 0
         },
         {
             "id": 6,
@@ -53,7 +58,8 @@
             "category": "House Plants",
             "size": "Medium",
             "new": false,
-            "sale": 0
+            "sale": false,
+            "saleInterest": 0
         },
         {
             "id": 7,
@@ -62,7 +68,8 @@
             "category": "House Plants",
             "size": "Small",
             "new": true,
-            "sale": 0
+            "sale": false,
+            "saleInterest": 0
         },
         {
             "id": 8,
@@ -71,7 +78,8 @@
             "category": "Terrariums",
             "size": "Medium",
             "new": false,
-            "sale": 0
+            "sale": false,
+            "saleInterest": 0
         },
         {
             "id": 9,
@@ -80,7 +88,8 @@
             "category": "House Plants",
             "size": "Small",
             "new": true,
-            "sale": 0
+            "sale": false,
+            "saleInterest": 0
         }
         
     ]
