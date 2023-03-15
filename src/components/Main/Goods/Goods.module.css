@@ -27,6 +27,7 @@
 
 .sort__selector {
     margin-left: 8px;
+    cursor: pointer;
 }
 
 .sort__selector::after {
@@ -40,4 +41,28 @@
     flex-wrap: wrap;
     gap: 70px 0px;
     justify-content: space-between
+}
+
+.sort__block {
+    position: relative;
+}
+
+.selector {
+    width: 100%;
+    z-index: 10;
+    margin-top: 20px;
+    position: absolute;
+    background-color: white;
+}
+
+.selector__item {
+    cursor: pointer;
+    padding: 10px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.selector__item:hover {
+    background-color: #46A358;
+    color: white;
 }

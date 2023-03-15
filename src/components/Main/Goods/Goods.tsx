@@ -6,9 +6,11 @@ import { useActions } from '../../../hooks/useActions';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 
 const Goods: FC = () => {
-    const { getPlants } = useActions();
+    const [ selectorActive, setSelectorActive]  = useState(false);
+    const [ sortValue, setSortValue ] = useState<any>();
     const { Plants } = useTypedSelector(state => state.Plants);
     const url = window.location.pathname;
+    const { getPlants } = useActions();
 
     useEffect(() => {
         const checkUrl = () => {
@@ -39,6 +41,32 @@ const Goods: FC = () => {
         getPlants(undefined, true);
     };
 
+    let selectorToggle = () => {
+        setSelectorActive(true);
+    };
+
+    let onClickSort = (event: any) => {
+        setSortValue(event.target.innerText);
+        setSelectorActive(false);
+        
+        if (event.target.innerText === 'Default Sorting') {
+            Plants.sort((a: any, b: any) => {
+                return a.id - b.id
+                        
+            });
+        } else if (event.target.innerText === 'By price increase') {
+            Plants.sort((a: any, b: any) => {
+                return a.price - b.price
+                        
+            });
+        } else if (event.target.innerText === 'By price reduction') {
+            Plants.sort((a: any, b: any) => {
+                return a.price - b.price
+                        
+            }).reverse();
+        } 
+    };
+
     return (
         <div className={s.goods}>
             <div className={s.goods__menu}>
@@ -47,12 +75,21 @@ const Goods: FC = () => {
                 <NavLink to='Sale' onClick={getSale} className={({ isActive }) => isActive ? s.goods__menu_item_active : s.goods__menu_item}>Sale</NavLink>
                 <div className={s.sort__block}>
                     <p className={s.sort__text}>Short by:</p>
-                    <p className={s.sort__selector}>Default Sorting</p>
+                    <p className={s.sort__selector} onClick={selectorToggle}>{sortValue ? sortValue : 'Default Sorting'}</p>
+                    {
+                        selectorActive ?
+                            <div className={s.selector}>
+                                <p className={s.selector__item} onClick={onClickSort}>Default Sorting</p>
+                                <p className={s.selector__item} onClick={onClickSort}>By price increase</p>
+                                <p className={s.selector__item} onClick={onClickSort}>By price reduction</p>
+                            </div> : undefined
+                    }
                 </div>
             </div>
             <div className={s.products}>
                 {
-                    Plants.map((plant: any) => {
+                   
+                   Plants.map((plant: any) => {
                         return (
                             <ProductCard
                                 Category={plant.category}
@@ -61,7 +98,7 @@ const Goods: FC = () => {
                                 Price={plant.price}
                                 SaleInterest={plant.saleInterest}
                                 Sale={plant.sale}
-                                SalePrice={plant.salePrice}
+                                OldPrice={plant.oldPrice}
                                 Size={plant.size}
                                 Title={plant.title}
                                 key={plant.id}

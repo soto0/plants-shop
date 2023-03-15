@@ -10,7 +10,7 @@ interface ProductCardProps {
     Price: number,
     Sale: boolean,
     SaleInterest: number,
-    SalePrice: number,
+    OldPrice: number,
     Size: string,
     Title: string
 };
@@ -36,8 +36,8 @@ const ProductCard: FC<ProductCardProps> = (props: ProductCardProps) => {
             <div className={s.product__bottom}>
                 <p className={s.product__title}>{props.Title}</p>
                 <div className={s.price__block}>
-                {props.SalePrice ? <p className={s.product__sale_price}>$ {props.SalePrice + '.00'}</p> : undefined}
-                <p className={props.SalePrice ? s.product__price_old : s.product__price}>${props.Price + '.00'}</p>    
+                <p className={s.product__price}>${props.Price + '.00'}</p>    
+                {props.OldPrice ? <p className={props.OldPrice ? s.product__price_old :  s.product__sale_price}>$ {props.OldPrice + '.00'}</p> : undefined}
                 </div>
             </div>
         </Link>

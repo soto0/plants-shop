@@ -23,8 +23,8 @@
         {
             "id": 3,
             "title": "African Violet",
-            "price": 229,
-            "salePrice": 199,
+            "price": 199,
+            "oldPrice": 229,
             "category": "Potter Plants",
             "size": "Medium",
             "new": false,
