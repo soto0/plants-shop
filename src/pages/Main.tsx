@@ -1,4 +1,5 @@
 import {FC, useEffect} from 'react';
+import Blog from '../components/Main/Blog/Blog';
 import Categories from '../components/Main/Categories/Categories';
 import Goods from '../components/Main/Goods/Goods';
 import Offer from '../components/Main/Offer/Offer';
@@ -7,8 +8,9 @@ import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const MainPage: FC = () => {
-    const { getPlants } = useActions();
+    const { getPlants, getPosts } = useActions();
     const { Plants } = useTypedSelector(state => state.Plants);
+    const { Posts } = useTypedSelector(state => state.Posts);
     
     let onClickCategory = (event: any) => {
         getPlants(undefined, undefined, event.target.href.slice(22));
@@ -20,6 +22,7 @@ const MainPage: FC = () => {
 
     useEffect(() => {
         getPlants();
+        getPosts();
     }, []);
 
     return (
@@ -32,6 +35,7 @@ const MainPage: FC = () => {
                 </div>
                 <div className="main__bottom">
                     <Offer />
+                    <Blog Posts={Posts} />
                 </div>
             </div>
         </main>

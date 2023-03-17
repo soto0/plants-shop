@@ -17,7 +17,7 @@ interface ProductCardProps {
 
 const ProductCard: FC<ProductCardProps> = (props: ProductCardProps) => {
     return (
-        <Link to='' className={s.product}>
+        <Link to={'Product/' + props.Id} className={s.product}>
             <div className={s.product__top}>
                 {props.SaleInterest !== 0 ? <p className={s.sale}>{props.Sale}% OFF</p> : undefined}
                 <img src={Product} alt="product" className={s.product__icon} />

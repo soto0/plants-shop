@@ -1,0 +1,86 @@
+.blog {
+    margin-top: 136px;
+    text-align: center;
+}
+
+.title {
+    font-size: 30px;
+}
+
+.subtitle {
+    margin-top: 15px;
+    color: #727272;
+}
+
+.posts {
+    margin-top: 35px;
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    height: 362px;
+}
+
+.post {
+    width: 268px;
+}
+
+.post__icon {
+    width: 100%;
+}
+
+.post__bottom {
+    text-align: start;
+    margin-top: 8.83px;
+    padding: 0 15px 15px 15px;
+}
+
+.post__date {
+    font-size: 14px;
+    font-weight: 500;
+    color: #46A358;
+}
+
+.post__title {
+    max-width: 189px;
+    font-size: 20px;
+    text-transform: none;
+    color: #3D3D3D;
+    font-weight: 700;
+    text-align: start;
+    line-height: 26px;
+}
+
+.post__text {
+    margin-top: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    color: #727272;
+}
+
+.post__more,
+.post__more path {
+    font-size: 14px;
+    font-weight: 500;
+    color: #3D3D3D;
+    margin-top: 9px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    transition: all 0.3s;
+}
+
+.post__more:hover,
+.post__more:hover path {
+    color: #46A358;
+    fill: #46A358;
+}
+
+@media screen and (max-width: 1040px) {
+    .post__date {
+        font-size: 13px;
+    }
+    
+    .post__text {
+        font-size: 13px;
+    }
+}

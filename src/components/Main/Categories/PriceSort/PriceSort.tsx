@@ -1,5 +1,6 @@
 import { Field, Form, Formik } from 'formik';
 import { FC, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import s from './../Categories.module.css';
 
 interface PriceSort {
@@ -8,12 +9,14 @@ interface PriceSort {
 
 const PriceSort: FC<PriceSort> = (props: PriceSort) => {
     const [ priceCount, setPriceCount ] = useState<any>();
+    const navigate = useNavigate();
     
     return (
         <Formik
             initialValues={{ price: 39 }}
             onSubmit={values => {
-                props.GetPlants(undefined, undefined, undefined, undefined, values.price)
+                props.GetPlants(undefined, undefined, undefined, undefined, values.price);
+                navigate('Price/' + values.price);
             }}
         >
             {({ values, handleBlur }) => (
