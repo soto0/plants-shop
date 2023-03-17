@@ -1,13 +1,14 @@
-import {FC} from 'react';
+import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Categories.module.css';
 import Banner from './../../../assets/images/banner.png';
-import { useActions } from '../../../hooks/useActions';
+import PriceSort from './PriceSort/PriceSort';
 
 interface CategoriesProps {
     Plants: [],
     OnClickCategory: any,
-    OnCLickSize: any
+    OnCLickSize: any,
+    GetPlants: any
 };
 
 const Categories: FC<CategoriesProps> = (props: CategoriesProps) => {
@@ -26,11 +27,7 @@ const Categories: FC<CategoriesProps> = (props: CategoriesProps) => {
                 <NavLink to='Accessions' onClick={props.OnClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Accessions<span>(18)</span></NavLink>
             </div>
             <h3 className={s.price__title}>Price Range</h3>
-            <div className={s.price__block}>
-            <input type="range" min="39" max="1230" className={s.price} />
-            <p className="price__count">Price: <span>$39</span></p>
-            <button className="button filter__button">Filter</button>
-            </div>
+            <PriceSort GetPlants={props.GetPlants} />
             <h3 className={s.size__title}>Size</h3>
             <div className={s.size__list}>
                 <NavLink to='Small' className={({ isActive }) => isActive ? s.size_active : s.size} onClick={props.OnCLickSize}>Small<span>(119)</span></NavLink>

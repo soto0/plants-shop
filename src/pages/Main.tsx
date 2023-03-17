@@ -6,7 +6,6 @@ import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const MainPage: FC = () => {
-
     const { getPlants } = useActions();
     const { Plants } = useTypedSelector(state => state.Plants);
     
@@ -27,7 +26,7 @@ const MainPage: FC = () => {
             <div className="container">
                 <Slider />
                 <div className="main__center">
-                    <Categories OnClickCategory={onClickCategory} Plants={Plants} OnCLickSize={onCLickSize} />
+                    <Categories OnClickCategory={onClickCategory} Plants={Plants} OnCLickSize={onCLickSize} GetPlants={getPlants} />
                     <Goods Plants={Plants} GetPlants={getPlants} />
                 </div>
             </div>
