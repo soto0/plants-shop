@@ -73,3 +73,12 @@
     width: 367px;
     margin-left: -45px;
 }
+
+@media screen and (max-width: 1200px) {
+    .categories {
+        min-width: 260px;
+    }
+    .banner {
+        width: 315px;
+    }
+}

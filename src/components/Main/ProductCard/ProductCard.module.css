@@ -81,3 +81,15 @@
     margin-top: 14px;
     font-weight: 500;
 }
+
+@media screen and (max-width: 1200px) {
+    .product {
+        width: 200px;
+    } 
+    .product__top {
+        height: 250px;
+    }
+    .product__icon {
+        width: 100%;
+    }
+}
