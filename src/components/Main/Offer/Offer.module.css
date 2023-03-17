@@ -1,0 +1,32 @@
+.offer {
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+    justify-content: center;
+    padding-top: 148px;
+}
+
+.offer__banner {
+    background-color: #FBFBFB;
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.banner__title {
+    margin-top: 37px;
+}
+
+.banner__text {
+    font-size: 14px;
+    color: #727272;
+    text-align: right;
+    line-height: 24px;
+}
+
+.banner__icon {
+    margin-top: -52px;
+    margin-left: -50px;
+}
