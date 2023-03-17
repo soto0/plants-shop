@@ -1,12 +1,19 @@
-import {FC} from 'react';
+import {FC, useState} from 'react';
 import s from './Header.module.css';
 import { Link, NavLink } from 'react-router-dom';
 import Logo from './../../assets/images/logo.svg';
 import Search from './../../assets/images/search.svg';
 import Basket from './../../assets/images/basket.svg';
 import Login from './../../assets/images/login.svg';
+import Popup from '../Popup/Popup';
 
 const Header: FC = () => {
+    const [ popupActive, setPopupActive ] = useState(false);
+
+    let PopupToggle = () => {
+        setPopupActive(!popupActive);
+    };
+
     return (
         <header>
             <div className="container">
@@ -35,12 +42,13 @@ const Header: FC = () => {
                         <p className={s.basket__count}>0</p>
                         <img src={Basket} alt="basket" className={s.basket} />
                     </div>
-                    <Link to='/Login' className='button login'>
+                    <p className='button login' onClick={PopupToggle}>
                         <img src={Login} alt="login" className="login__icon" />
                         Login
-                    </Link>
+                    </p>
                 </div>
             </div>
+            <Popup PopupActive={popupActive} OnClickPopupButton={PopupToggle} />
         </header>
     );
 };

@@ -111,6 +111,12 @@ footer {
     gap: 2px;
 }
 
+.register {
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px;
+}
+
 .login {
     margin-left: 5px;
     display: flex;
@@ -154,3 +160,4 @@ input[type=range]::-moz-range-thumb {
     font-weight: 700;
     color: #46A358;
 }
+

@@ -1,0 +1,117 @@
+
+
+.popup {
+    display: none;
+}
+
+.popup_active {
+    z-index: 15;
+    background-color: white;
+    position: absolute;
+    top: 33%;
+    left: 50%;
+    transform:translate(-50%, -33%);
+    padding: 13px;
+    padding-bottom: 40px;
+    border-bottom: solid 10px #46A358;
+    width: 500px;
+    text-align: center;
+}
+
+.close {
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+}
+
+.title {
+    justify-content: center;
+    margin-top: 21px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-weight: 250px;
+    font-size: 18px;
+    color: #3d3d3d;
+}
+
+.title p {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+
+.register__active {
+    color: #46A358;
+}
+
+.form__block {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.form__text {
+    text-align: start;
+    font-weight: 400;
+    font-size: 13px;
+    color: #3d3d3d;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+}
+
+.input {
+    padding: 12px 14px;
+    border: solid 1px #EAEAEA;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.input::placeholder {
+    color: #A5A5A5;
+}
+
+
+.popup__back {
+    display: none;
+}
+
+.popup__back_active {
+    cursor: pointer;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: 100%;
+    position: fixed;
+    background: rgba(10, 13, 18, 0.25);
+}
+
+.error {
+    display: block;
+    font-weight: 600;
+    color: rgb(233, 91, 91);
+}
+
+.togglePassword {
+    width: 20px;
+    cursor: pointer;
+    height: 20px;
+    position: absolute;
+    margin-top: 12px;
+    right: 0;
+    margin-right: 10px;
+}
+
+.password__input input {
+    width: 100%;
+}
