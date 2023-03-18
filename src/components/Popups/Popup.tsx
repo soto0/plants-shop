@@ -1,11 +1,11 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import * as yup from "yup";
 import s from "./Popups.module.css";
 import { Field, Formik, Form } from "formik";
 import Close from "./../../assets/images/close.svg";
 import togglePasswordIcon from './../../assets/images/toggle__password.svg';
 import { Registration } from "../../api/Registration";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useActions } from "../../hooks/useActions";
 
 interface PopupProps {
@@ -18,7 +18,8 @@ interface PopupProps {
 const Popup: FC<PopupProps> = (props: PopupProps) => {
     const { getLogin } = useActions();
     const [url, setUrl] = useState('Login');
-    const [passwordType, setPasswordType] = useState("password");
+    const [ passwordType, setPasswordType ] = useState("password");
+    const [ registerError, setRegisterError ] = useState(true);
 
     const RegisterValidationSchema = yup.object().shape({
         userName: yup.string().required("Name is required"),
@@ -58,11 +59,8 @@ const Popup: FC<PopupProps> = (props: PopupProps) => {
                         onSubmit={values => {
                             if (url === 'Login') {
                                 getLogin(values.email, props.OnClickPopupButton);
-                                
                             } else {
-                                Registration(values.userName, values.email, values.password);
-                                props.OnClickPopupButton();
-                                setUrl('Login');
+                                Registration(values.userName, values.email, values.password, setRegisterError, props.OnClickPopupButton, setUrl);
                             };
                         }}
                     >
@@ -82,6 +80,7 @@ const Popup: FC<PopupProps> = (props: PopupProps) => {
                                         />
                                 }
                                 {touched.userName && errors.userName && url === 'Register' && <p className={s.error}>{errors.userName}</p>}
+                                { url !== 'Login' && registerError === false ? <p className={s.error}>User Name is already exists</p> : undefined} 
                                 <Field
                                     type="email"
                                     name="email"
@@ -102,7 +101,7 @@ const Popup: FC<PopupProps> = (props: PopupProps) => {
                                         value={values.password}
                                         placeholder="Password"
                                     />
-                                    <img src={togglePasswordIcon} className={s.togglePassword} onClick={togglePassword} />
+                                    <img src={togglePasswordIcon} alt="password__toggle" className={s.togglePassword} onClick={togglePassword} />
                                 </div>
                                 {touched.password && errors.password && <p className={s.error}>{errors.password}</p>}
                                 {
