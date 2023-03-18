@@ -42,7 +42,8 @@
 }
 
 
-.register__active {
+.register__active,
+.login__active {
     color: #46A358;
 }
 

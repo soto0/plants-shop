@@ -120,10 +120,10 @@
   ],
   "Users": [
     {
+      "id": "0test",
       "userName": "test",
-      "email": "kaden0065@gmail.com",
-      "password": "test0065",
-      "id": 1
+      "email": "test@gmail.com",
+      "password": "test0065"
     }
   ]
 }

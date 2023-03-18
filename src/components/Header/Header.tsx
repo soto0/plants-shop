@@ -1,17 +1,21 @@
 import {FC, useState} from 'react';
 import s from './Header.module.css';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Logo from './../../assets/images/logo.svg';
 import Search from './../../assets/images/search.svg';
 import Basket from './../../assets/images/basket.svg';
 import Login from './../../assets/images/login.svg';
-import Popup from '../Popup/Popup';
+import Popup from '../Popups/Popup';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const Header: FC = () => {
+    const { IsAuth, User, Error } = useTypedSelector(state => state.Login);
     const [ popupActive, setPopupActive ] = useState(false);
+    const navigate = useNavigate();
 
     let PopupToggle = () => {
         setPopupActive(!popupActive);
+        navigate('');
     };
 
     return (
@@ -42,13 +46,17 @@ const Header: FC = () => {
                         <p className={s.basket__count}>0</p>
                         <img src={Basket} alt="basket" className={s.basket} />
                     </div>
-                    <p className='button login' onClick={PopupToggle}>
-                        <img src={Login} alt="login" className="login__icon" />
-                        Login
-                    </p>
+                    {
+                        IsAuth ?
+                            <p className={s.user__name}>{User?.userName}</p> :
+                            <Link to='Login' className='button login' onClick={PopupToggle}>
+                                <img src={Login} alt="login" className="login__icon" />
+                                Login
+                            </Link>
+                    }
                 </div>
             </div>
-            <Popup PopupActive={popupActive} OnClickPopupButton={PopupToggle} />
+            <Popup PopupActive={popupActive} OnClickPopupButton={PopupToggle} Error={Error} User={User} />
         </header>
     );
 };

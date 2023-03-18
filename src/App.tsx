@@ -26,6 +26,8 @@ const App = () => {
             <Route path='/Medium'></Route>
             <Route path='/Large'></Route>
             <Route path='/Price/:price'></Route>
+            <Route path='/Login'></Route>
+            <Route path='/Register'></Route>
           </Route>
         </Routes>
         <Footer />
