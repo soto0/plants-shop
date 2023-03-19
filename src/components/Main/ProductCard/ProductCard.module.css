@@ -1,5 +1,6 @@
 .product {
     display: block;
+    position: relative;
     width: 258px;
     transition: all 0.3s;
     border-top: solid 1px #FBFBFB;
@@ -81,6 +82,20 @@
     left: 0;
     margin-top: 14px;
     font-weight: 500;
+}
+
+.prompt {
+    top: 0;
+    margin-top: 50%;
+    position: absolute;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 0 5px rgb(219, 219, 219);
+    font-weight: 700;
+    font-size: 20px;
+    color: #46A358;
+    text-align: center;
 }
 
 @media screen and (max-width: 1200px) {

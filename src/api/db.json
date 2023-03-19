@@ -132,11 +132,5 @@
       "password": "sottomanS08"
     }
   ],
-  "Likes": [
-    {
-      "likesProductId": 1,
-      "user": "test",
-      "id": 1
-    }
-  ]
+  "Likes": []
 }
