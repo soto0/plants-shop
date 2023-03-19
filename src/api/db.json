@@ -1,7 +1,7 @@
 {
   "Plants": [
     {
-      "id": 1,
+      "id": 0,
       "title": "Barberton Daisy",
       "price": 119,
       "category": "Small-Plants",
@@ -11,7 +11,7 @@
       "saleInterest": 0
     },
     {
-      "id": 2,
+      "id": 1,
       "title": "Angel Wing Begonia",
       "price": 169,
       "category": "Potter-Plants",
@@ -21,7 +21,7 @@
       "saleInterest": 0
     },
     {
-      "id": 3,
+      "id": 2,
       "title": "African Violet",
       "price": 199,
       "oldPrice": 229,
@@ -32,7 +32,7 @@
       "saleInterest": 13
     },
     {
-      "id": 4,
+      "id": 3,
       "title": "Beach Spider Lily",
       "price": 129,
       "category": "Big-Plants",
@@ -42,7 +42,7 @@
       "saleInterest": 0
     },
     {
-      "id": 5,
+      "id": 4,
       "title": "Blushing Bromeliad",
       "price": 139,
       "category": "House-Plants",
@@ -52,7 +52,7 @@
       "saleInterest": 0
     },
     {
-      "id": 6,
+      "id": 5,
       "title": "Aluminum Plant",
       "price": 179,
       "category": "House-Plants",
@@ -62,7 +62,7 @@
       "saleInterest": 0
     },
     {
-      "id": 7,
+      "id": 6,
       "title": "Bird's Nest Fern",
       "price": 99,
       "category": "House-Plants",
@@ -72,7 +72,7 @@
       "saleInterest": 0
     },
     {
-      "id": 8,
+      "id": 7,
       "title": "Broadleaf Lady Palm",
       "price": 59,
       "category": "Terrariums",
@@ -82,7 +82,7 @@
       "saleInterest": 0
     },
     {
-      "id": 9,
+      "id": 8,
       "title": "Chinese Evergreen",
       "price": 39,
       "category": "House-Plants",
@@ -131,5 +131,6 @@
       "email": "kaden0065@gmail.com",
       "password": "sottomanS08"
     }
-  ]
+  ],
+  "Likes": []
 }
