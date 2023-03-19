@@ -2,11 +2,10 @@ import { FC, useEffect, useState } from 'react';
 import s from './Goods.module.css';
 import { NavLink } from 'react-router-dom';
 import ProductCard from './../ProductCard/ProductCard';
-import { useActions } from '../../../hooks/useActions';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 
 interface GoodsProps {
-    Plants: [],
+    Plants: any,
     GetPlants: any
 }
 
@@ -14,6 +13,7 @@ const Goods: FC<GoodsProps> = (props: GoodsProps) => {
     const [ selectorActive, setSelectorActive]  = useState(false);
     const [ sortValue, setSortValue ] = useState<any>();
     const url = window.location.pathname;
+    const { LikesProduct } = useTypedSelector(state => state.Likes);
 
     useEffect(() => {
         const checkUrl = () => {
@@ -70,6 +70,8 @@ const Goods: FC<GoodsProps> = (props: GoodsProps) => {
         } 
     };
 
+    
+
     return (
         <div className={s.goods}>
             <div className={s.goods__menu}>
@@ -90,8 +92,7 @@ const Goods: FC<GoodsProps> = (props: GoodsProps) => {
                 </div>
             </div>
             <div className={s.products}>
-                {
-                   
+                { 
                    props.Plants.map((plant: any) => {
                         return (
                             <ProductCard
@@ -105,6 +106,7 @@ const Goods: FC<GoodsProps> = (props: GoodsProps) => {
                                 Size={plant.size}
                                 Title={plant.title}
                                 key={plant.id}
+                                LikesProduct={LikesProduct.filter((like: any) => like.likesProductId === plant.id)}
                             />
                         )
                     })

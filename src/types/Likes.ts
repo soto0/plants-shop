@@ -1,5 +1,5 @@
 export interface LikesState {
-    LikesProduct: any
+    LikesProduct: any,
 };
 
 export enum LikesTypes {
@@ -8,7 +8,7 @@ export enum LikesTypes {
 
 interface getLikesProduct {
     type: LikesTypes.GET_LIKES_PRODUCT,
-    likesProduct: []
+    likesProduct: [],
 };
 
 export type LikesAction = getLikesProduct;

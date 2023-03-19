@@ -1,7 +1,7 @@
 import { LikesState, LikesAction, LikesTypes } from './../../types/Likes';
 
 const initialState: LikesState = {
-    LikesProduct: []
+    LikesProduct: [],
 };
 
 export const LikesReducer = (state = initialState, action: LikesAction) => {
