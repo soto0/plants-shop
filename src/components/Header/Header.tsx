@@ -9,6 +9,7 @@ import Popup from '../Popups/Popup';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const Header: FC = () => {
+    const { BasketToggle } = useTypedSelector(state => state.Basket);
     const { IsAuth, User, Error } = useTypedSelector(state => state.Login);
     const [ popupActive, setPopupActive ] = useState(false);
     const navigate = useNavigate();
@@ -43,7 +44,7 @@ const Header: FC = () => {
                 <div className={s.right__menu}>
                     <img src={Search} className={s.search} />
                     <div className={s.basket}>
-                        <p className={s.basket__count}>0</p>
+                        <p className={s.basket__count}>{BasketToggle.length}</p>
                         <img src={Basket} alt="basket" className={s.basket} />
                     </div>
                     {

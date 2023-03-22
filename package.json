@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "json": "json-server --watch ../plants-shop/src/api/db.json --routes ../plants-shop/src/api/routes.json --port 3001",
+    "json": "json-server --watch ../plants-shop/src/api/db/db.json --routes ../plants-shop/src/api/db/routes.json --port 3001",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

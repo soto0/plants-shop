@@ -1,3 +1,4 @@
+import { BasketReducer } from './Basket';
 import { LikesReducer } from './Likes';
 import { combineReducers } from "redux";
 import { LoginReducer } from './Login';
@@ -8,7 +9,8 @@ export const rootReducer = combineReducers({
     Plants: PlantsReducer,
     Posts: PostsReducer,
     Login: LoginReducer,
-    Likes: LikesReducer
+    Likes: LikesReducer,
+    Basket: BasketReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>

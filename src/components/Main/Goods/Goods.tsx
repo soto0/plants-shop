@@ -14,6 +14,7 @@ const Goods: FC<GoodsProps> = (props: GoodsProps) => {
     const [ sortValue, setSortValue ] = useState<any>();
     const url = window.location.pathname;
     const { LikesProduct } = useTypedSelector(state => state.Likes);
+    const { BasketToggle } = useTypedSelector(state => state.Basket);
 
     useEffect(() => {
         const checkUrl = () => {
@@ -70,8 +71,6 @@ const Goods: FC<GoodsProps> = (props: GoodsProps) => {
         } 
     };
 
-    
-
     return (
         <div className={s.goods}>
             <div className={s.goods__menu}>
@@ -106,7 +105,8 @@ const Goods: FC<GoodsProps> = (props: GoodsProps) => {
                                 Size={plant.size}
                                 Title={plant.title}
                                 key={plant.id}
-                                LikesProduct={LikesProduct.filter((like: any) => like.likesProductId === plant.id)}
+                                LikesProduct={LikesProduct.filter((like: any) => like.id === plant.id)}
+                                BasketToggleProduct={BasketToggle.filter((basketProduct: any) => basketProduct.id === plant.id)}
                             />
                         )
                     })
