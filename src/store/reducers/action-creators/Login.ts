@@ -2,10 +2,10 @@ import axios from "axios"
 import { Dispatch } from "redux"
 import { LoginAction, LoginTypes } from "../../../types/Login"
 
-export const getLogin = (email: string, PopupToggle: any) => {
+export const getLogin = (userName: string, PopupToggle: any) => {
     return async (dispatch: Dispatch<LoginAction>) => {
         try {
-            const response = await axios.get('http://localhost:3001/Users?email=' + email);
+            const response = await axios.get('http://localhost:3001/Users?userName=' + userName);
 
             if (response.data.length !== 0) {
                 PopupToggle();

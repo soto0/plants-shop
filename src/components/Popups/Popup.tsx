@@ -29,7 +29,7 @@ const Popup: FC<PopupProps> = (props: PopupProps) => {
     });
 
     const LoginValidationSchema = yup.object().shape({
-        email: yup.string().required("Email is required").email("Email is invalid"),
+        userName: yup.string().required("Name is required"),
         password: yup.string().required("Password is required"),
     });
 
@@ -58,7 +58,7 @@ const Popup: FC<PopupProps> = (props: PopupProps) => {
                         validationSchema={url === 'Login' ? LoginValidationSchema : RegisterValidationSchema}
                         onSubmit={values => {
                             if (url === 'Login') {
-                                getLogin(values.email, props.OnClickPopupButton);
+                                getLogin(values.userName, props.OnClickPopupButton);
                             } else {
                                 Registration(values.userName, values.email, values.password, setRegisterError, props.OnClickPopupButton, setUrl);
                             };
@@ -66,30 +66,30 @@ const Popup: FC<PopupProps> = (props: PopupProps) => {
                     >
                         {({ values, handleBlur, handleChange, isValid, touched, errors }) => (
                             <Form className={s.form}>
-                                {
-                                    url === 'Login' ?
-                                        undefined :
-                                        <Field
-                                            type="text"
-                                            name="userName"
-                                            className={s.input}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            value={values.userName}
-                                            placeholder="Username"
-                                        />
-                                }
-                                {touched.userName && errors.userName && url === 'Register' && <p className={s.error}>{errors.userName}</p>}
-                                { url !== 'Login' && registerError === false ? <p className={s.error}>User Name is already exists</p> : undefined} 
                                 <Field
-                                    type="email"
-                                    name="email"
+                                    type="text"
+                                    name="userName"
                                     className={s.input}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
-                                    value={values.email}
-                                    placeholder="Enter your email address"
+                                    value={values.userName}
+                                    placeholder="Username"
                                 />
+                                {touched.userName && errors.userName && url === 'Register' && <p className={s.error}>{errors.userName}</p>}
+                                { url !== 'Login' && registerError === false ? <p className={s.error}>User Name is already exists</p> : undefined} 
+                                {
+                                    url === 'Login' ?
+                                    undefined :
+                                    <Field
+                                        type="email"
+                                        name="email"
+                                        className={s.input}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        value={values.email}
+                                        placeholder="Enter your email address"
+                                    />
+                                }
                                 {touched.email && errors.email && <p className={s.error}>{errors.email}</p>}
                                 <div className={s.password__input}>
                                     <Field

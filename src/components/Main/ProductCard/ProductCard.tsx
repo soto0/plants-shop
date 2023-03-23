@@ -68,7 +68,7 @@ const ProductCard: FC<ProductCardProps> = (props: ProductCardProps) => {
                     {props.OldPrice ? <p className={props.OldPrice ? s.product__price_old : s.product__sale_price}>$ {props.OldPrice + '.00'}</p> : undefined}
                 </div>
             </div>
-            {User.length === 0 && promptActive ? <Prompt /> : undefined}
+            {User?.length === 0 && promptActive ? <Prompt /> : undefined}
         </div>
     );
 };
