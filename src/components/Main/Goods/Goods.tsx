@@ -6,7 +6,9 @@ import { useTypedSelector } from '../../../hooks/useTypedSelector';
 
 interface GoodsProps {
     Plants: any,
-    GetPlants: any
+    GetPlants: any,
+    GetPages: any,
+    Pages: any
 }
 
 const Goods: FC<GoodsProps> = (props: GoodsProps) => {
@@ -31,6 +33,8 @@ const Goods: FC<GoodsProps> = (props: GoodsProps) => {
         };
 
         checkUrl();
+        props.GetPages();
+        
     }, [url]);
 
     let getAllPlants = () => {
@@ -118,6 +122,15 @@ const Goods: FC<GoodsProps> = (props: GoodsProps) => {
                         )
                     })
                 }
+            </div>
+            <div className={s.pagination}>
+                <span className={s.prev__btn}></span>
+                {
+                    props.Pages.map((page: number) => {
+                        return (<span className={s.page}>{page}</span>)
+                    })
+                }
+                <span className={s.next__btn}></span>
             </div>
         </div>
     );

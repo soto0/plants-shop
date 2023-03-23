@@ -8,8 +8,8 @@ import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const MainPage: FC = () => {
-    const { getPlants, getPosts } = useActions();
-    const { Plants } = useTypedSelector(state => state.Plants);
+    const { getPlants, getPosts, getPages } = useActions();
+    const { Plants, Pages } = useTypedSelector(state => state.Plants);
     const { Posts } = useTypedSelector(state => state.Posts);
     
     let onClickCategory = (event: any) => {
@@ -31,7 +31,7 @@ const MainPage: FC = () => {
                 <Slider />
                 <div className="main__center">
                     <Categories OnClickCategory={onClickCategory} Plants={Plants} OnCLickSize={onCLickSize} GetPlants={getPlants} />
-                    <Goods Plants={Plants} GetPlants={getPlants} />
+                    <Goods Plants={Plants} Pages={Pages} GetPlants={getPlants} GetPages={getPages}  />
                 </div>
                 <div className="main__bottom">
                     <Offer />
