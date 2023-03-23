@@ -8,7 +8,7 @@ interface PriceSort {
 }
 
 const PriceSort: FC<PriceSort> = (props: PriceSort) => {
-    const [ priceCount, setPriceCount ] = useState<any>();
+    const [ priceCount, setPriceCount ] = useState<number>();
     const navigate = useNavigate();
     
     return (

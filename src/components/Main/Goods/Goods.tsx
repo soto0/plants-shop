@@ -10,8 +10,8 @@ interface GoodsProps {
 }
 
 const Goods: FC<GoodsProps> = (props: GoodsProps) => {
-    const [ selectorActive, setSelectorActive]  = useState(false);
-    const [ sortValue, setSortValue ] = useState<any>();
+    const [selectorActive, setSelectorActive] = useState(false);
+    const [sortValue, setSortValue] = useState<any>();
     const url = window.location.pathname;
     const { LikesProduct } = useTypedSelector(state => state.Likes);
     const { BasketToggle } = useTypedSelector(state => state.Basket);
@@ -52,23 +52,30 @@ const Goods: FC<GoodsProps> = (props: GoodsProps) => {
     let onClickSort = (event: any) => {
         setSortValue(event.target.innerText);
         setSelectorActive(false);
-        
-        if (event.target.innerText === 'Default Sorting') {
-            props.Plants.sort((a: any, b: any) => {
-                return a.id - b.id
-                        
-            });
-        } else if (event.target.innerText === 'By price increase') {
-            props.Plants.sort((a: any, b: any) => {
-                return a.price - b.price
-                        
-            });
-        } else if (event.target.innerText === 'By price reduction') {
-            props.Plants.sort((a: any, b: any) => {
-                return a.price - b.price
-                        
-            }).reverse();
-        } 
+
+        switch (event.target.innerText) {
+            case 'Default Sorting':
+                return (
+                    props.Plants.sort((a: any, b: any) => {
+                        return a.id - b.id
+
+                    })
+                )
+            case 'By price increase':
+                return (
+                    props.Plants.sort((a: any, b: any) => {
+                        return a.price - b.price
+
+                    })
+                )
+            case 'By price reduction':
+                return (
+                    props.Plants.sort((a: any, b: any) => {
+                        return a.price - b.price
+
+                    }).reverse()
+                )
+        };
     };
 
     return (
@@ -91,8 +98,8 @@ const Goods: FC<GoodsProps> = (props: GoodsProps) => {
                 </div>
             </div>
             <div className={s.products}>
-                { 
-                   props.Plants.map((plant: any) => {
+                {
+                    props.Plants.map((plant: any) => {
                         return (
                             <ProductCard
                                 Category={plant.category}
@@ -105,8 +112,8 @@ const Goods: FC<GoodsProps> = (props: GoodsProps) => {
                                 Size={plant.size}
                                 Title={plant.title}
                                 key={plant.id}
-                                LikesProduct={LikesProduct.filter((like: any) => like.id === plant.id)}
-                                BasketToggleProduct={BasketToggle.filter((basketProduct: any) => basketProduct.id === plant.id)}
+                                LikesProduct={LikesProduct.filter((like: any) => like.likesProductId === plant.id)}
+                                BasketToggleProduct={BasketToggle.filter((basketProduct: any) => basketProduct.productId === plant.id)}
                             />
                         )
                     })
