@@ -37,10 +37,12 @@
 
 .products {
     margin-top: 31px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 70px 10px;
-    justify-content: space-between
+    max-width: 100%;
+    display: grid;
+    gap: 20px 10px;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: auto;
 }
 
 .sort__block {
@@ -65,4 +67,16 @@
 .selector__item:hover {
     background-color: #46A358;
     color: white;
+}
+
+@media screen and (max-width: 1470px) {
+    .products {
+        grid-template-columns: repeat(3, auto);
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .products {
+        grid-template-columns: repeat(2, auto);
+    }
 }

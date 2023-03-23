@@ -1,7 +1,6 @@
 .product {
     display: block;
     position: relative;
-    width: 258px;
     transition: all 0.3s;
     border-top: solid 1px #FBFBFB;
 }
@@ -20,6 +19,7 @@
     padding: 31px 4px 19px 4px;
     height: 300px;
     position: relative;
+    text-align: center;
 }
 
 .product__bottom {
@@ -96,16 +96,4 @@
     font-size: 20px;
     color: #46A358;
     text-align: center;
-}
-
-@media screen and (max-width: 1200px) {
-    .product {
-        width: 200px;
-    } 
-    .product__top {
-        height: 250px;
-    }
-    .product__icon {
-        width: 100%;
-    }
 }
