@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import MainPage from './pages/Main';
 import Footer from './components/Footer/Footer';
+import ProductPage from './pages/Product';
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
             <Route path='/Login'></Route>
             <Route path='/Register'></Route>
           </Route>
+          <Route path='/Product/:productId' element={<ProductPage />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>
