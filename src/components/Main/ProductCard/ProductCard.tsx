@@ -34,7 +34,7 @@ const ProductCard: FC<ProductCardProps> = (props: ProductCardProps) => {
     }, [User]);
 
     return (
-        <div className={s.product}>
+        <Link to={'Product/' + props.Id} className={s.product}>
             <div className={s.product__top}>
                 {props.SaleInterest !== 0 ? <p className={s.sale}>{props.Sale}% OFF</p> : undefined}
                 <img src={Product} alt="product" className={s.product__icon} />
@@ -69,7 +69,7 @@ const ProductCard: FC<ProductCardProps> = (props: ProductCardProps) => {
                 </div>
             </div>
             {User?.length === 0 && promptActive ? <Prompt /> : undefined}
-        </div>
+        </Link>
     );
 };
 

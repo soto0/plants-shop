@@ -2,7 +2,18 @@ import axios from 'axios';
 import { Dispatch } from 'redux';
 import { PlantAction, PlantTypes } from '../../../types/Plant';
 
-export const getPlant = () => {
+export const getPlant = (plantId: number) => {
+    return async (dispatch: Dispatch<PlantAction>) => {
+        try {
+            const response = await axios.get('http://localhost:3001/Plants/' + plantId);
+            dispatch({ type: PlantTypes.GET_PLANT, plant: response.data });
+        } catch (error) {
+            console.error(error);
+        }
+    };
+};
+
+export const getSliderPlants = () => {
     return async (dispatch: Dispatch<PlantAction>) => {
         try {
             const response = await axios.get('http://localhost:3001/Plants');

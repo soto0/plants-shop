@@ -1,9 +1,12 @@
 import {FC} from 'react';
 import s from './ProductTop.module.css';
 import ProductIcon from './../../../assets/images/product.png';
-import Stars from './../../../assets/images/stars.svg';
 
-const ProductTop: FC = () => {
+interface ProductTopProps {
+    Plant: any
+};
+
+const ProductTop: FC<ProductTopProps> = (props: ProductTopProps) => {
     return (
         <div className={s.product__top}>
             <div className={s.product__left}>
@@ -16,13 +19,13 @@ const ProductTop: FC = () => {
                 <img src={ProductIcon} alt="large__icon" className={s.product__large_icon} />
             </div>
             <div className={s.product__right}>
-                <h2 className={s.product__title}>Barberton Daisy</h2>
+                <h2 className={s.product__title}>{props.Plant.title}</h2>
                 <div className={s.product__statistic}>
-                    <p className={s.product__price}>$119.00</p>
+                    <p className={s.product__price}>{props.Plant.price + '.00$'}</p>
                 </div>
                 <div className={s.product__description}>
                     <h5 className={s.product__description_title}>Short Description:</h5>
-                    <p className={s.product__description}>The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. The ceramic cylinder planters come with a wooden stand to help elevate your plants off the ground. </p>
+                    <p className={s.product__description}>{props.Plant.shortDescription}</p>
                 </div>
                 <div className={s.product__size}>
                     <h5 className={s.product__size_title}>Size:</h5>
@@ -45,9 +48,9 @@ const ProductTop: FC = () => {
                     </div>
                 </div>
                 <div className={s.product__info}>
-                    <p className={s.product__info_text}>SKU: <span>1995751877966</span></p>
-                    <p className={s.product__info_text}>Categories: <span>Potter Plants</span></p>
-                    <p className={s.product__info_text}>Tags: <span>Home, Garden, Plants</span></p>
+                    <p className={s.product__info_text}>SKU: <span>{props.Plant.sku}</span></p>
+                    <p className={s.product__info_text}>Categories: <span>{props.Plant.category}</span></p>
+                    <p className={s.product__info_text}>Tags: <span>{props.Plant.tags}</span></p>
                 </div>
             </div>
         </div>

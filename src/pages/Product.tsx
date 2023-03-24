@@ -7,19 +7,21 @@ import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const ProductPage: FC = () => {
-    const { getPlant } = useActions();
-    const { SliderPlants } = useTypedSelector(state => state.Plant);
+    const { getSliderPlants, getPlant } = useActions();
+    const { SliderPlants, Plant } = useTypedSelector(state => state.Plant);
+    const productId = Number(window.location.pathname.slice(9));
 
     useEffect(() => {
-        getPlant();
+        getSliderPlants();
+        getPlant(productId);
     }, []);
 
     return (
         <main>
             <div className="container">
                 <BreadCrumps Url={'Shop'} />
-                <ProductTop />
-                <ProductCenter />
+                <ProductTop Plant={Plant} />
+                <ProductCenter PlantDescription={Plant.description} />
                 <ProductBottom SliderPlants={SliderPlants}  />
             </div>
         </main>

@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import SwiperCore, { Pagination } from "swiper";
+import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import ProductCard from '../../Main/ProductCard/ProductCard';
 import s from './ProductBottom.module.css';
 
 interface ProductBottomProps {
-    SliderPlants: []
+    SliderPlants: [],
 };
 
 const ProductBottom: FC<ProductBottomProps> = (props: ProductBottomProps) => {
