@@ -44,21 +44,6 @@
     font-size: 22px;
 }
 
-.product__rating {
-    display: flex;
-    gap: 11px;
-    align-items: center;
-}
-
-.product__stars {
-    height: 14px;
-}
-
-.product__rating_count {
-    font-size: 15px;
-    font-weight: 400;
-}
-
 .product__description {
     margin-top: 15px;
 }

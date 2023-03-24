@@ -19,10 +19,6 @@ const ProductTop: FC = () => {
                 <h2 className={s.product__title}>Barberton Daisy</h2>
                 <div className={s.product__statistic}>
                     <p className={s.product__price}>$119.00</p>
-                    <div className={s.product__rating}>
-                        <img src={Stars} className={s.product__stars} />
-                        <p className={s.product__rating_count}>19 Customer Review</p>
-                    </div>
                 </div>
                 <div className={s.product__description}>
                     <h5 className={s.product__description_title}>Short Description:</h5>
