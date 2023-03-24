@@ -43,7 +43,6 @@
     grid-auto-flow: dense;
     grid-template-columns: repeat(4, auto);
     grid-template-rows: auto;
-    height: 1114px;
 }
 
 .sort__block {
