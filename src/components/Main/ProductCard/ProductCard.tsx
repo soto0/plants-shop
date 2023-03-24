@@ -28,7 +28,7 @@ const ProductCard: FC<ProductCardProps> = (props: ProductCardProps) => {
     const { User } = useTypedSelector(state => state.Login);
 
     useEffect(() => {
-        if (User) {
+        if (User.userName !== undefined) {
             getLikesProduct(User.userName);
         }
     }, [User]);

@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import s from './Goods.module.css';
 import { NavLink } from 'react-router-dom';
 import ProductCard from './../ProductCard/ProductCard';
@@ -7,46 +7,24 @@ import { useTypedSelector } from '../../../hooks/useTypedSelector';
 interface GoodsProps {
     Plants: any,
     GetPlants: any,
-    GetPages: any,
-    Pages: any
 }
 
 const Goods: FC<GoodsProps> = (props: GoodsProps) => {
     const [selectorActive, setSelectorActive] = useState(false);
     const [sortValue, setSortValue] = useState<any>();
-    const url = window.location.pathname;
     const { LikesProduct } = useTypedSelector(state => state.Likes);
     const { BasketToggle } = useTypedSelector(state => state.Basket);
 
-    useEffect(() => {
-        const checkUrl = () => {
-            switch (url) {
-                case '/':
-                    return props.GetPlants();
-                case '/New-Arrivals':
-                    return props.GetPlants(true, undefined);
-                case '/Sale':
-                    return props.GetPlants(undefined, true);
-                default:
-                    return undefined
-            }
-        };
-
-        checkUrl();
-        props.GetPages();
-        
-    }, [url]);
-
     let getAllPlants = () => {
-        props.GetPlants();
+        props.GetPlants(undefined, undefined, undefined, undefined, undefined);
     };
 
     let getNewArrivals = () => {
-        props.GetPlants(true, undefined);
+        props.GetPlants(true, undefined, undefined, undefined, undefined);
     };
 
     let getSale = () => {
-        props.GetPlants(undefined, true);
+        props.GetPlants(undefined, true, undefined, undefined, undefined);
     };
 
     let selectorToggle = () => {
@@ -122,15 +100,6 @@ const Goods: FC<GoodsProps> = (props: GoodsProps) => {
                         )
                     })
                 }
-            </div>
-            <div className={s.pagination}>
-                <span className={s.prev__btn}></span>
-                {
-                    props.Pages.map((page: number) => {
-                        return (<span className={s.page}>{page}</span>)
-                    })
-                }
-                <span className={s.next__btn}></span>
             </div>
         </div>
     );

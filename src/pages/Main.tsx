@@ -8,30 +8,40 @@ import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const MainPage: FC = () => {
-    const { getPlants, getPosts, getPages } = useActions();
-    const { Plants, Pages } = useTypedSelector(state => state.Plants);
+    const { getPlants, getPosts } = useActions();
+    const { Plants } = useTypedSelector(state => state.Plants);
     const { Posts } = useTypedSelector(state => state.Posts);
-    
-    let onClickCategory = (event: any) => {
-        getPlants(undefined, undefined, event.target.href.slice(22));
-    };
-
-    let onCLickSize = (event: any) => {
-        getPlants(undefined, undefined, undefined, event.target.href.slice(22));
-    };
+    const url = window.location.pathname;
 
     useEffect(() => {
-        getPlants();
+        const checkUrl = () => {
+            switch (url) {
+                case '/':
+                    return getPlants(undefined, undefined, undefined, undefined, undefined)
+                case '/New-Arrivals':
+                    return  (
+                        getPlants(true, undefined, undefined, undefined, undefined)
+                    )
+                case '/Sale':
+                    return (
+                        getPlants(undefined, true, undefined, undefined, undefined)
+                    )
+                default:
+                    return undefined
+            }
+        };
+
+        checkUrl();
         getPosts();
-    }, []);
+    }, [url]);
 
     return (
         <main>
             <div className="container">
                 <Slider />
                 <div className="main__center">
-                    <Categories OnClickCategory={onClickCategory} Plants={Plants} OnCLickSize={onCLickSize} GetPlants={getPlants} />
-                    <Goods Plants={Plants} Pages={Pages} GetPlants={getPlants} GetPages={getPages}  />
+                    <Categories Plants={Plants} GetPlants={getPlants} />
+                    <Goods Plants={Plants} GetPlants={getPlants}  />
                 </div>
                 <div className="main__bottom">
                     <Offer />

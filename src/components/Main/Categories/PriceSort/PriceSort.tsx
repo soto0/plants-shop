@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import s from './../Categories.module.css';
 
 interface PriceSort {
-    GetPlants: any
+    GetPlants: any,
 }
 
 const PriceSort: FC<PriceSort> = (props: PriceSort) => {

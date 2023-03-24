@@ -1,11 +1,9 @@
 export interface PlantsState {
     Plants: any,
-    Pages: number[]
 };
 
 export enum PlantsTypes {
     GET_PLANTS = 'GET_PLANTS',
-    GET_PAGES = 'GET_PAGES'
 };
 
 interface getPlants {
@@ -13,9 +11,4 @@ interface getPlants {
     plants: []
 };
 
-interface getPages {
-    type: PlantsTypes.GET_PAGES,
-    pages: number[]
-};
-
-export type PlantsAction = getPlants | getPages;
+export type PlantsAction = getPlants;

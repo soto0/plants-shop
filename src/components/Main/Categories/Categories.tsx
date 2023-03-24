@@ -6,33 +6,39 @@ import PriceSort from './PriceSort/PriceSort';
 
 interface CategoriesProps {
     Plants: [],
-    OnClickCategory: any,
-    OnCLickSize: any,
-    GetPlants: any
+    GetPlants: any,
 };
 
 const Categories: FC<CategoriesProps> = (props: CategoriesProps) => {
+    let onClickCategory = (event: any) => {
+        props.GetPlants(undefined, undefined, event.target.href.slice(22), undefined, undefined);
+    };
+    
+    let onCLickSize = (event: any) => {
+        props.GetPlants(undefined, undefined, undefined, event.target.href.slice(22), undefined);
+    };
+
     return (
         <div className={s.categories}>
             <h3 className={s.title}>Categories</h3>
             <div className={s.categories__list}>
-                <NavLink to='House-Plants' onClick={props.OnClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>House Plants<span>(33)</span></NavLink>
-                <NavLink to='Potter-Plants' onClick={props.OnClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Potter Plants<span>(12)</span></NavLink>
-                <NavLink to='Seeds' onClick={props.OnClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Seeds<span>(65)</span></NavLink>
-                <NavLink to='Small-Plants' onClick={props.OnClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Small Plants<span>(39)</span></NavLink>
-                <NavLink to='Big-Plants' onClick={props.OnClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Big Plants<span>(23)</span></NavLink>
-                <NavLink to='Succulents' onClick={props.OnClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Succulents<span>(17)</span></NavLink>
-                <NavLink to='Terrariums' onClick={props.OnClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Terrariums<span>(19)</span></NavLink>
-                <NavLink to='Gardening' onClick={props.OnClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Gardening<span>(13)</span></NavLink>
-                <NavLink to='Accessions' onClick={props.OnClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Accessions<span>(18)</span></NavLink>
+                <NavLink to='House-Plants' onClick={onClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>House Plants</NavLink>
+                <NavLink to='Potter-Plants' onClick={onClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Potter Plants</NavLink>
+                <NavLink to='Seeds' onClick={onClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Seeds</NavLink>
+                <NavLink to='Small-Plants' onClick={onClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Small Plants</NavLink>
+                <NavLink to='Big-Plants' onClick={onClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Big Plants</NavLink>
+                <NavLink to='Succulents' onClick={onClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Succulents</NavLink>
+                <NavLink to='Terrariums' onClick={onClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Terrariums</NavLink>
+                <NavLink to='Gardening' onClick={onClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Gardening</NavLink>
+                <NavLink to='Accessions' onClick={onClickCategory} className={({ isActive }) => isActive ? s.categories__link_active : s.categories__link}>Accessions</NavLink>
             </div>
             <h3 className={s.price__title}>Price Range</h3>
             <PriceSort GetPlants={props.GetPlants} />
             <h3 className={s.size__title}>Size</h3>
             <div className={s.size__list}>
-                <NavLink to='Small' className={({ isActive }) => isActive ? s.size_active : s.size} onClick={props.OnCLickSize}>Small<span>(119)</span></NavLink>
-                <NavLink to='Medium' className={({ isActive }) => isActive ? s.size_active : s.size} onClick={props.OnCLickSize}>Medium<span>(86)</span></NavLink>
-                <NavLink to='Large' className={({ isActive }) => isActive ? s.size_active : s.size} onClick={props.OnCLickSize}>Large<span>(78)</span></NavLink>
+                <NavLink to='Small' className={({ isActive }) => isActive ? s.size_active : s.size} onClick={onCLickSize}>Small</NavLink>
+                <NavLink to='Medium' className={({ isActive }) => isActive ? s.size_active : s.size} onClick={onCLickSize}>Medium</NavLink>
+                <NavLink to='Large' className={({ isActive }) => isActive ? s.size_active : s.size} onClick={onCLickSize}>Large</NavLink>
             </div>
             <img src={Banner} alt="banner" className={s.banner} />
         </div>
