@@ -99,24 +99,6 @@
     align-items: center;
 }
 
-.product__count_btn {
-    font-weight: 700;
-    color: white;
-    width: 33px;
-    height: 38px;
-    background-color: #46A358;
-    border-radius: 29px;
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-}
-
-.product__count {
-    font-size: 20px;
-}
-
 .product__buy_buttons {
     display: flex;
     gap: 10px;

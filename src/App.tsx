@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Header from './components/Header/Header';
 import MainPage from './pages/Main';
-import Footer from './components/Footer/Footer';
 import ProductPage from './pages/Product';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import ShoppingCartPage from './pages/ShoppingCart';
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
             <Route path='/Register'></Route>
           </Route>
           <Route path='/Product/:productId' element={<ProductPage />}></Route>
+          <Route path='/Shopping-Cart' element={<ShoppingCartPage />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

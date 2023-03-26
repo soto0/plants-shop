@@ -7,6 +7,7 @@ import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import ProductPrompt from './ProductPrompt/ProductPrompt';
 import { addProductToBasket } from '../../../api/BasketToggle';
 import { useNavigate } from 'react-router-dom';
+import QuantitySelector from '../../../helpers/QuantitySelector';
 
 interface ProductTopProps {
     Plant: any,
@@ -20,7 +21,7 @@ const ProductTop: FC<ProductTopProps> = (props: ProductTopProps) => {
     const { LikesProduct } = useTypedSelector(state => state.Likes);
     const [ size, setSize ] = useState('S');
     const [ promptActive, setPromptActive] = useState<boolean>(false);
-    const [ productCount, setProductCount ] = useState<number>(1);
+    const [ count, setCount ] = useState<number>(1);
     const navigate = useNavigate();
 
     const getSmallIcon = (e: any) => {
@@ -31,19 +32,11 @@ const ProductTop: FC<ProductTopProps> = (props: ProductTopProps) => {
         setSize(e.target.innerText);
     };
 
-    const deleteProductCount = () => {
-        setProductCount(productCount - 1);
-    };
-
-    const addProductCount = () => {
-        setProductCount(productCount + 1);
-    };
-
     const onClickBuy = () => {
         if (props.User.length === 0) {
             setPromptActive(true);
         } else {
-            addProductToBasket(props.Plant.id, props.Plant.Title, props.Plant.Price, props.User.userName, productCount, size);
+            addProductToBasket(props.Plant.id, props.Plant.Title, props.Plant.Price, props.User.userName, count, size);
             navigate('/Shop-cart');
         };
     };
@@ -79,9 +72,7 @@ const ProductTop: FC<ProductTopProps> = (props: ProductTopProps) => {
                 </div>
                 <div className={s.product__buy}>
                     <div className={s.product__count_selector}>
-                        <button type="button" disabled={productCount === 1 ? true : false} className={s.product__count_btn} onClick={deleteProductCount}>-</button>
-                        <div className={s.product__count}>{productCount}</div>
-                        <button type="button" disabled={productCount === 4 ? true : false} className={s.product__count_btn} onClick={addProductCount}>+</button>
+                        <QuantitySelector SetCount={setCount} Count={count} />
                         <div className={s.product__buy_buttons}>
                             <button className="button product__btn" onClick={onClickBuy}>Buy NOW</button>
                             <div className={s.product__like}></div>

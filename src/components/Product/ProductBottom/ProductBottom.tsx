@@ -1,8 +1,6 @@
 import { FC } from 'react';
-import { Pagination } from "swiper";
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
-import ProductCard from '../../Main/ProductCard/ProductCard';
+import OfferSlider from '../../OfferSlider/OfferSlider';
 import s from './ProductBottom.module.css';
 
 interface ProductBottomProps {
@@ -19,35 +17,11 @@ const ProductBottom: FC<ProductBottomProps> = (props: ProductBottomProps) => {
     return (
         <div className={s.product__bottom}>
             <h3 className={s.product__title}>Releted Products</h3>
-            <Swiper
-                className={s.product__slider}
-                slidesPerView={'auto'}
-                modules={[Pagination]}
-                spaceBetween={52}
-                pagination={{ clickable: true }}
-            >
-                {
-                    FilterSlider.map((plant: any) => {
-                        return (
-                            <SwiperSlide className={s.slide}>
-                                <ProductCard 
-                                    Category={plant.category} 
-                                    Id={plant.id} 
-                                    New={plant.new} 
-                                    Price={plant.price} 
-                                    Sale={plant.sale} 
-                                    SaleInterest={plant.saleInterest} 
-                                    OldPrice={plant.OldPrice} 
-                                    Size={plant.OldPrice} 
-                                    Title={plant.title} 
-                                    LikesProduct={LikesProduct} 
-                                    BasketToggleProduct={BasketToggle} 
-                                />
-                            </SwiperSlide>
-                        )
-                    })
-                }
-            </Swiper>
+            <OfferSlider 
+                LikesProduct={LikesProduct} 
+                BasketToggle={BasketToggle} 
+                FilterSlider={FilterSlider} 
+            />
         </div>
     );
 };
