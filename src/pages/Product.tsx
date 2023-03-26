@@ -7,8 +7,8 @@ import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const ProductPage: FC = () => {
-    const { getSliderPlants, getPlant } = useActions();
-    const { SliderPlants, Plant } = useTypedSelector(state => state.Plant);
+    const { getSliderPlants, getPlant, getLargeIcon } = useActions();
+    const { SliderPlants, Plant, LargeIcon } = useTypedSelector(state => state.Plant);
     const productId = Number(window.location.pathname.slice(9));
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const ProductPage: FC = () => {
         <main>
             <div className="container">
                 <BreadCrumps Url={'Shop'} />
-                <ProductTop Plant={Plant} />
+                <ProductTop Plant={Plant} GetLargeIcon={getLargeIcon} LargeIcon={LargeIcon} />
                 <ProductCenter PlantDescription={Plant.description} />
                 <ProductBottom SliderPlants={SliderPlants}  />
             </div>

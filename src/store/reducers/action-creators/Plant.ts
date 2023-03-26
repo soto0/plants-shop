@@ -23,3 +23,9 @@ export const getSliderPlants = () => {
         }
     };
 };
+
+export const getLargeIcon = (smallIcon: string) => {
+    return async (dispatch: Dispatch<PlantAction>) => {
+        dispatch({ type: PlantTypes.GET_LARGE_ICON, largeIcon: smallIcon });
+    };
+};

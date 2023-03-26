@@ -1,11 +1,13 @@
 export interface PlantState {
     Plant: any,
-    SliderPlants: []
+    SliderPlants: [],
+    LargeIcon: string
 };
 
 export enum PlantTypes {
     GET_PLANT = 'GET_PLANT',
-    GET_SLIDER_PLANTS = 'GET_SLIDER_PLANTS'
+    GET_SLIDER_PLANTS = 'GET_SLIDER_PLANTS',
+    GET_LARGE_ICON = 'GET_LARGE_ICON'
 };
 
 interface getPlant {
@@ -18,4 +20,9 @@ interface getSliderPlants {
     sliderPlants: []
 };
 
-export type PlantAction = getPlant | getSliderPlants;
+interface getLargeIcon {
+    type: PlantTypes.GET_LARGE_ICON,
+    largeIcon: string
+};
+
+export type PlantAction = getPlant | getSliderPlants | getLargeIcon;

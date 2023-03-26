@@ -1,22 +1,29 @@
 import {FC} from 'react';
 import s from './ProductTop.module.css';
 import ProductIcon from './../../../assets/images/product.png';
+import ProductIcon2 from './../../../assets/images/product2.png';
 
 interface ProductTopProps {
-    Plant: any
+    Plant: any,
+    GetLargeIcon: any,
+    LargeIcon: string
 };
 
 const ProductTop: FC<ProductTopProps> = (props: ProductTopProps) => {
+    const getSmallIcon = (e: any) => {
+        props.GetLargeIcon(e.target.src);
+    };
+
     return (
         <div className={s.product__top}>
             <div className={s.product__left}>
                 <div className={s.product__small_icons}>
-                    <img src={ProductIcon} alt="small__icon" className={s.product__small_icon} />
-                    <img src={ProductIcon} alt="small__icon" className={s.product__small_icon} />
-                    <img src={ProductIcon} alt="small__icon" className={s.product__small_icon} />
-                    <img src={ProductIcon} alt="small__icon" className={s.product__small_icon} />
+                    <img src={ProductIcon} alt="small__icon" className={s.product__small_icon} onClick={getSmallIcon} />
+                    <img src={ProductIcon2} alt="small__icon" className={s.product__small_icon} onClick={getSmallIcon} />
+                    <img src={ProductIcon} alt="small__icon" className={s.product__small_icon} onClick={getSmallIcon} />
+                    <img src={ProductIcon2} alt="small__icon"  className={s.product__small_icon} onClick={getSmallIcon} />
                 </div>
-                <img src={ProductIcon} alt="large__icon" className={s.product__large_icon} />
+                <img src={props.LargeIcon} alt="large__icon" className={s.product__large_icon} />
             </div>
             <div className={s.product__right}>
                 <h2 className={s.product__title}>{props.Plant.title}</h2>
