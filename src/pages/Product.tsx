@@ -28,7 +28,7 @@ const ProductPage: FC = () => {
                 <BreadCrumps Url={'Shop'} />
                 <ProductTop Plant={Plant} GetLargeIcon={getLargeIcon} LargeIcon={LargeIcon} User={User} GetLikesProduct={getLikesProduct} />
                 <ProductCenter PlantDescription={Plant.description} />
-                <ProductBottom SliderPlants={SliderPlants}  />
+                <ProductBottom SliderPlants={SliderPlants} PlantTitle={Plant.title}  />
             </div>
         </main>
     );

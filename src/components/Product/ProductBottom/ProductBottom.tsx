@@ -7,11 +7,14 @@ import s from './ProductBottom.module.css';
 
 interface ProductBottomProps {
     SliderPlants: [],
+    PlantTitle: string
 };
 
 const ProductBottom: FC<ProductBottomProps> = (props: ProductBottomProps) => {
     const { LikesProduct } = useTypedSelector(state => state.Likes);
     const { BasketToggle } = useTypedSelector(state => state.Basket);
+
+    const FilterSlider = props.SliderPlants.filter((plant: any) => plant.title !== props.PlantTitle);
     
     return (
         <div className={s.product__bottom}>
@@ -24,7 +27,7 @@ const ProductBottom: FC<ProductBottomProps> = (props: ProductBottomProps) => {
                 pagination={{ clickable: true }}
             >
                 {
-                    props.SliderPlants.map((plant: any) => {
+                    FilterSlider.map((plant: any) => {
                         return (
                             <SwiperSlide className={s.slide}>
                                 <ProductCard 
