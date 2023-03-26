@@ -5,12 +5,14 @@ import ProductIcon2 from './../../../assets/images/product2.png';
 import LikeToggle from '../../../helpers/LikeToggle/LikeToggle';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import ProductPrompt from './ProductPrompt/ProductPrompt';
+import { addProductToBasket } from '../../../api/BasketToggle';
+import { useNavigate } from 'react-router-dom';
 
 interface ProductTopProps {
     Plant: any,
     GetLargeIcon: any,
     LargeIcon: string,
-    User: string,
+    User: any,
     GetLikesProduct: any
 };
 
@@ -19,6 +21,7 @@ const ProductTop: FC<ProductTopProps> = (props: ProductTopProps) => {
     const [ size, setSize ] = useState('S');
     const [ promptActive, setPromptActive] = useState<boolean>(false);
     const [ productCount, setProductCount ] = useState<number>(1);
+    const navigate = useNavigate();
 
     const getSmallIcon = (e: any) => {
         props.GetLargeIcon(e.target.src);
@@ -34,6 +37,15 @@ const ProductTop: FC<ProductTopProps> = (props: ProductTopProps) => {
 
     const addProductCount = () => {
         setProductCount(productCount + 1);
+    };
+
+    const onClickBuy = () => {
+        if (props.User.length === 0) {
+            setPromptActive(true);
+        } else {
+            addProductToBasket(props.Plant.id, props.Plant.Title, props.Plant.Price, props.User.userName, productCount, size);
+            navigate('/Shop-cart');
+        };
     };
 
     return (
@@ -71,9 +83,15 @@ const ProductTop: FC<ProductTopProps> = (props: ProductTopProps) => {
                         <div className={s.product__count}>{productCount}</div>
                         <button type="button" disabled={productCount === 4 ? true : false} className={s.product__count_btn} onClick={addProductCount}>+</button>
                         <div className={s.product__buy_buttons}>
-                            <button className="button product__btn">Buy NOW</button>
+                            <button className="button product__btn" onClick={onClickBuy}>Buy NOW</button>
                             <div className={s.product__like}></div>
-                            <LikeToggle User={props.User} SetPromptActive={setPromptActive} LikesProduct={LikesProduct} Id={props.Plant.id} GetLikesProduct={props.GetLikesProduct} />
+                            <LikeToggle 
+                                User={props.User} 
+                                SetPromptActive={setPromptActive} 
+                                LikesProduct={LikesProduct} 
+                                Id={props.Plant.id} 
+                                GetLikesProduct={props.GetLikesProduct} 
+                            />
                         </div>
                     </div>
                 </div>

@@ -1,13 +1,15 @@
 import axios from "axios";
 
-export const addProductToBasket = async (productId: number, productTitle: string, productPrice: number, user: string) => {
+export const addProductToBasket = async (productId: number, productTitle: string, productPrice: number, user: string, productAmount: number, productSize: string) => {
     try {
         await axios.post('http://localhost:3001/Basket',
             {
                 productId: productId,
                 productTitle: productTitle,
                 productPrice: productPrice,
-                user: user
+                user: user,
+                productAmount: productAmount,
+                productSize: productSize
             });
     } catch (error) {
         console.error(error);

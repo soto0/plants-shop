@@ -18,7 +18,7 @@ const BasketToggle: FC<BasketToggleProps> = (props: BasketToggleProps) => {
             props.SetPromptActive(true);
         } else {
             if(!props.BasketToggleProduct[0] || props.BasketToggleProduct[0].productId !== props.Id) {
-                addProductToBasket(props.Id, props.Title, props.Price, props.User.userName);
+                addProductToBasket(props.Id, props.Title, props.Price, props.User.userName, 1, "S");
             } else {
                 deleteProductFromBasket(props.BasketToggleProduct[0].id);
             };
