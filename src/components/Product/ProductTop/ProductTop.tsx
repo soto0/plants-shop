@@ -36,7 +36,7 @@ const ProductTop: FC<ProductTopProps> = (props: ProductTopProps) => {
         if (props.User.length === 0) {
             setPromptActive(true);
         } else {
-            addProductToBasket(props.Plant.id, props.Plant.Title, props.Plant.Price, props.User.userName, count, size);
+            addProductToBasket(props.Plant.id, props.Plant.Title, props.Plant.Price, props.User.userName, count, size, props.Plant.sku);
             navigate('/Shop-cart');
         };
     };

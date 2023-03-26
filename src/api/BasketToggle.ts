@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const addProductToBasket = async (productId: number, productTitle: string, productPrice: number, user: string, productAmount: number, productSize: string) => {
+export const addProductToBasket = async (productId: number, productTitle: string, productPrice: number, user: string, productAmount: number, productSize: string, productSKU: number) => {
     try {
         await axios.post('http://localhost:3001/Basket',
             {
@@ -9,7 +9,8 @@ export const addProductToBasket = async (productId: number, productTitle: string
                 productPrice: productPrice,
                 user: user,
                 productAmount: productAmount,
-                productSize: productSize
+                productSize: productSize,
+                productSKU: productSKU
             });
     } catch (error) {
         console.error(error);

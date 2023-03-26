@@ -43,10 +43,10 @@ const Header: FC = () => {
                 </nav>
                 <div className={s.right__menu}>
                     <img src={Search} className={s.search} />
-                    <div className={s.basket}>
+                    <Link to='/Shopping-Cart' className={s.basket}>
                         <p className={s.basket__count}>{BasketToggle.length}</p>
                         <img src={Basket} alt="basket" className={s.basket} />
-                    </div>
+                    </Link>
                     {
                         IsAuth ?
                             <p className={s.user__name}>{User?.userName}</p> :

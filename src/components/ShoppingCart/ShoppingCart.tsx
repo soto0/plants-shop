@@ -1,13 +1,15 @@
-import {FC, useState} from 'react';
+import { FC, useState } from 'react';
 import QuantitySelector from '../../helpers/QuantitySelector';
 import s from './ShoppingCart.module.css';
 import ProductIcon from './../../assets/images/product.png';
 import Delete from './../../assets/images/delete.svg';
 import { Link } from 'react-router-dom';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const ShoppingCart: FC = () => {
-    const [ count, setCount ] = useState<number>(1);
-    
+    const { Products } = useTypedSelector(state => state.ShoppingCart);
+    const [ count, setCount] = useState<number>(1);
+
     return (
         <div className={s.shoppingCart__block}>
             <div className={s.shoppingCart__left}>
@@ -18,17 +20,23 @@ const ShoppingCart: FC = () => {
                     <p className={s.title}>Total</p>
                 </div>
                 <div className={s.shoppingCart__products}>
-                    <div className={s.shoppingCart__product}>
-                        <img src={ProductIcon} alt="product" className={s.shoppingCart__product_icon} />
-                        <div className={s.shoppingCart__product_text}>
-                            <p className={s.shoppingCart__product_title}>Barberton Daisy</p>
-                            <p className={s.shoppingCart__product_sku}>SKU: <span>1995751877966</span></p>
-                        </div>
-                        <p className={s.shoppingCart__product_price}>$119.00</p>
-                        <QuantitySelector SetCount={setCount} Count={count} />
-                        <p className={s.shoppingCart__product_total}>$238.00</p>
-                        <img src={Delete} alt="delete" className={s.shoppingCart__product_delete} />
-                    </div>
+                    {
+                        Products.map((product: any) => {
+                            return (
+                                <div className={s.shoppingCart__product}>
+                                    <img src={ProductIcon} alt="product" className={s.shoppingCart__product_icon} />
+                                    <div className={s.shoppingCart__product_text}>
+                                        <p className={s.shoppingCart__product_title}>{product.productTitle}</p>
+                                        <p className={s.shoppingCart__product_sku}>SKU: <span>{product.productSKU}</span></p>
+                                    </div>
+                                    <p className={s.shoppingCart__product_price}>${product.productPrice}.00</p>
+                                    <QuantitySelector SetCount={setCount} Count={count} />
+                                    <p className={s.shoppingCart__product_total}>$238.00</p>
+                                    <img src={Delete} alt="delete" className={s.shoppingCart__product_delete} />
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </div>
             <div className={s.shoppingCart__right}>

@@ -7,7 +7,7 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 
 
 const ShoppingCartPage: FC = () => {
-    const { getSliderPlants, getLikesProduct } = useActions();
+    const { getSliderPlants, getLikesProduct, getShoppingCart } = useActions();
     const { User } = useTypedSelector(state => state.Login);
 
     useEffect(() => {
@@ -15,7 +15,9 @@ const ShoppingCartPage: FC = () => {
 
         if (User.userName !== undefined) {
             getLikesProduct(User.userName);
-        }
+        };
+
+        getShoppingCart(User.userName);
     }, [User]);
 
     return (

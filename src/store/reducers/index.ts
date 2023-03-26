@@ -1,3 +1,4 @@
+import { ShoppingCartReducer } from './ShoppingCart';
 import { BasketReducer } from './Basket';
 import { LikesReducer } from './Likes';
 import { combineReducers } from "redux";
@@ -12,7 +13,8 @@ export const rootReducer = combineReducers({
     Login: LoginReducer,
     Likes: LikesReducer,
     Basket: BasketReducer,
-    Plant: PlantReducer
+    Plant: PlantReducer,
+    ShoppingCart: ShoppingCartReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>

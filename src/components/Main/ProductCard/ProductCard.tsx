@@ -20,6 +20,7 @@ interface ProductCardProps {
     Title: string,
     LikesProduct: any,
     BasketToggleProduct: any,
+    SKU: number
 };
 
 const ProductCard: FC<ProductCardProps> = (props: ProductCardProps) => {
@@ -45,7 +46,8 @@ const ProductCard: FC<ProductCardProps> = (props: ProductCardProps) => {
                         BasketToggleProduct={props.BasketToggleProduct} 
                         Id={props.Id} Title={props.Title} 
                         Price={props.Price} 
-                        GetBasketToggle={getBasketToggle}  
+                        GetBasketToggle={getBasketToggle} 
+                        SKU={props.SKU} 
                     />
                     <LikeToggle 
                         User={User} 

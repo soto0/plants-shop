@@ -203,5 +203,25 @@
   ],
   "Likes": [],
   "Basket": [
+    {
+      "productId": 1,
+      "productTitle": "Barberton Daisy",
+      "productPrice": 119,
+      "user": "test",
+      "productAmount": 1,
+      "productSize": "S",
+      "productSKU": 1995751877966,
+      "id": 1
+    },
+    {
+      "productId": 2,
+      "productTitle": "Angel Wing Begonia",
+      "productPrice": 169,
+      "user": "test",
+      "productAmount": 1,
+      "productSize": "S",
+      "productSKU": 1995751877967,
+      "id": 2
+    }
   ]
 }

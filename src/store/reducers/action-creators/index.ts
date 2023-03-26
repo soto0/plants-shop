@@ -4,6 +4,7 @@ import * as LoginActionCreators from './Login';
 import * as LikesActionCreators from './Likes';
 import * as BasketActionCreators from './Basket';
 import * as PlantActionCreators from './Plant';
+import * as ShoppingCartActionCreators from './ShoppingCart';
 
 export default {
     ...PlantsActionCreators,
@@ -11,5 +12,6 @@ export default {
     ...LoginActionCreators,
     ...LikesActionCreators,
     ...BasketActionCreators,
-    ...PlantActionCreators
+    ...PlantActionCreators,
+    ...ShoppingCartActionCreators
 };

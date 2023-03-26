@@ -32,6 +32,7 @@ const OfferSlider: FC<OfferSlider> = (props: OfferSlider) => {
                                     OldPrice={plant.OldPrice} 
                                     Size={plant.OldPrice} 
                                     Title={plant.title} 
+                                    SKU={plant.sku}
                                     LikesProduct={props.LikesProduct} 
                                     BasketToggleProduct={props.BasketToggle} 
                                 />

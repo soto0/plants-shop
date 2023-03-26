@@ -93,6 +93,7 @@ const Goods: FC<GoodsProps> = (props: GoodsProps) => {
                                 OldPrice={plant.oldPrice}
                                 Size={plant.size}
                                 Title={plant.title}
+                                SKU={plant.sku}
                                 key={plant.id}
                                 LikesProduct={LikesProduct.filter((like: any) => like.likesProductId === plant.id)}
                                 BasketToggleProduct={BasketToggle.filter((basketProduct: any) => basketProduct.productId === plant.id)}
