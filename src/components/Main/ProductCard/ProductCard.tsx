@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { useActions } from '../../../hooks/useActions';
 import Prompt from './Prompt/Prompt';
-import LikeToggle from '../../../helpers/LikeToggle/LikeToggle';
+import LikeToggle from '../../../helpers/LikeToggle';
 import BasketToggle from './BasketToggle/BasketToggle';
 
 interface ProductCardProps {
@@ -52,7 +52,8 @@ const ProductCard: FC<ProductCardProps> = (props: ProductCardProps) => {
                         SetPromptActive={setPromptActive} 
                         LikesProduct={props.LikesProduct} 
                         Id={props.Id} 
-                        GetLikesProduct={getLikesProduct} 
+                        GetLikesProduct={getLikesProduct}
+                        LikeTitle={"ProductCard"} 
                     />
                     <Link to={'Product/' + props.Id}>
                         <svg className={s.product__menu_item} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

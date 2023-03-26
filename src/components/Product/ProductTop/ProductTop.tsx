@@ -2,7 +2,7 @@ import {FC, useState} from 'react';
 import s from './ProductTop.module.css';
 import ProductIcon from './../../../assets/images/product.png';
 import ProductIcon2 from './../../../assets/images/product2.png';
-import LikeToggle from '../../../helpers/LikeToggle/LikeToggle';
+import LikeToggle from '../../../helpers/LikeToggle';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import ProductPrompt from './ProductPrompt/ProductPrompt';
 import { addProductToBasket } from '../../../api/BasketToggle';
@@ -90,7 +90,8 @@ const ProductTop: FC<ProductTopProps> = (props: ProductTopProps) => {
                                 SetPromptActive={setPromptActive} 
                                 LikesProduct={LikesProduct} 
                                 Id={props.Plant.id} 
-                                GetLikesProduct={props.GetLikesProduct} 
+                                GetLikesProduct={props.GetLikesProduct}
+                                LikeTitle={"Product"} 
                             />
                         </div>
                     </div>
