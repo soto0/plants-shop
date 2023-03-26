@@ -4,7 +4,7 @@ import ProductIcon from './../../../assets/images/product.png';
 import ProductIcon2 from './../../../assets/images/product2.png';
 import LikeToggle from '../../../helpers/LikeToggle/LikeToggle';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
-import ProductPrompt from './ProductPrompt/ProductPromt';
+import ProductPrompt from './ProductPrompt/ProductPrompt';
 
 interface ProductTopProps {
     Plant: any,
