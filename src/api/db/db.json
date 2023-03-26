@@ -201,17 +201,6 @@
       "id": 3
     }
   ],
-  "Likes": [
-    {
-      "likesProductId": 2,
-      "user": "test",
-      "id": 2
-    },
-    {
-      "likesProductId": 1,
-      "user": "sotto0",
-      "id": 3
-    }
-  ],
+  "Likes": [],
   "Basket": []
 }

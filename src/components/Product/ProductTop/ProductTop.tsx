@@ -1,17 +1,39 @@
-import {FC} from 'react';
+import {FC, useState} from 'react';
 import s from './ProductTop.module.css';
 import ProductIcon from './../../../assets/images/product.png';
 import ProductIcon2 from './../../../assets/images/product2.png';
+import LikeToggle from '../../../helpers/LikeToggle/LikeToggle';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { useActions } from '../../../hooks/useActions';
 
 interface ProductTopProps {
     Plant: any,
     GetLargeIcon: any,
-    LargeIcon: string
+    LargeIcon: string,
+    User: string,
+    GetLikesProduct: any
 };
 
 const ProductTop: FC<ProductTopProps> = (props: ProductTopProps) => {
+    const { LikesProduct } = useTypedSelector(state => state.Likes);
+    const [ size, setSize ] = useState('S');
+    const [ promptActive, setPromptActive] = useState<boolean>(false);
+    const [ productCount, setProductCount ] = useState<number>(1);
+
     const getSmallIcon = (e: any) => {
         props.GetLargeIcon(e.target.src);
+    };
+
+    const selectSize = (e: any) => {
+        setSize(e.target.innerText);
+    };
+
+    const deleteProductCount = () => {
+        setProductCount(productCount - 1);
+    };
+
+    const addProductCount = () => {
+        setProductCount(productCount + 1);
     };
 
     return (
@@ -37,20 +59,21 @@ const ProductTop: FC<ProductTopProps> = (props: ProductTopProps) => {
                 <div className={s.product__size}>
                     <h5 className={s.product__size_title}>Size:</h5>
                     <div className={s.product__size_blocks}>
-                        <p className={s.product__size_block}>S</p>
-                        <p className={s.product__size_block}>M</p>
-                        <p className={s.product__size_block}>L</p>
-                        <p className={s.product__size_block}>XL</p>
+                        <p className={size === 'S' ? s.product__size_block_active : s.product__size_block} onClick={selectSize}>S</p>
+                        <p className={size === 'M' ? s.product__size_block_active : s.product__size_block} onClick={selectSize}>M</p>
+                        <p className={size === 'L' ? s.product__size_block_active : s.product__size_block} onClick={selectSize}>L</p>
+                        <p className={size === 'XL' ? s.product__size_block_active : s.product__size_block} onClick={selectSize}>XL</p>
                     </div>
                 </div>
                 <div className={s.product__buy}>
                     <div className={s.product__count_selector}>
-                        <span className={s.product__count_btn}>-</span>
-                        <div className={s.product__count}>1</div>
-                        <span className={s.product__count_btn}>+</span>
+                        <button type="button" disabled={productCount === 1 ? true : false} className={s.product__count_btn} onClick={deleteProductCount}>-</button>
+                        <div className={s.product__count}>{productCount}</div>
+                        <button type="button" disabled={productCount === 4 ? true : false} className={s.product__count_btn} onClick={addProductCount}>+</button>
                         <div className={s.product__buy_buttons}>
                             <button className="button product__btn">Buy NOW</button>
                             <div className={s.product__like}></div>
+                            <LikeToggle User={props.User} SetPromptActive={setPromptActive} LikesProduct={LikesProduct} Id={props.Plant.id} GetLikesProduct={props.GetLikesProduct} />
                         </div>
                     </div>
                 </div>

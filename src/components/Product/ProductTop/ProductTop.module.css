@@ -65,7 +65,8 @@
     gap: 10px;
 }
 
-.product__size_block {
+.product__size_block,
+.product__size_block_active {
     width: 28px;
     height: 28px;
     font-weight: 500;
@@ -77,6 +78,13 @@
     border: 1px solid #EAEAEA;
     color: #727272;
     cursor: pointer;
+    transition: all 0.3s;
+}
+
+.product__size_block_active {
+    border: 1px solid #46A358;
+    font-weight: 700;
+    color: #46A358;
 }
 
 .product__buy {
@@ -112,13 +120,6 @@
 .product__buy_buttons {
     display: flex;
     gap: 10px;
-}
-
-.product__like {
-    border-radius: 5px;
-    border: solid 1px #46A358;
-    content: url('./../../../assets/images/product__like.svg');
-    padding: 10px;
 }
 
 .product__info {

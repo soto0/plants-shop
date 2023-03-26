@@ -149,6 +149,24 @@ footer {
     background: #46A358 !important;
 }
 
+.like {
+    width: 35px;
+    height: 35px;
+    padding: 8px;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+ 
+
+.product__like {
+    border-radius: 5px;
+    border: solid 1px #46A358;
+    padding: 2px 2px;
+    height: 40px;
+    cursor: pointer;
+}
+
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
