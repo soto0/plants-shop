@@ -136,6 +136,23 @@
     color: #727272;
 }
 
+.prompt {
+    position: fixed;
+    top: 30%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(70, 70, 70);
+    width: 300px;
+    text-align: center;
+    font-weight: 700;
+    color: #46A358;
+    font-size: 30px;
+}
+
 @media screen and (max-width: 1260px) {
     .product__info {
         display: none;

@@ -4,7 +4,7 @@ import ProductIcon from './../../../assets/images/product.png';
 import ProductIcon2 from './../../../assets/images/product2.png';
 import LikeToggle from '../../../helpers/LikeToggle/LikeToggle';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
-import { useActions } from '../../../hooks/useActions';
+import ProductPrompt from './ProductPrompt/ProductPromt';
 
 interface ProductTopProps {
     Plant: any,
@@ -83,6 +83,7 @@ const ProductTop: FC<ProductTopProps> = (props: ProductTopProps) => {
                     <p className={s.product__info_text}>Tags: <span>{props.Plant.tags}</span></p>
                 </div>
             </div>
+            {promptActive ? <ProductPrompt /> : undefined}
         </div>
     );
 };
