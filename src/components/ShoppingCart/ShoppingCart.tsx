@@ -27,6 +27,8 @@ const ShoppingCart: FC<ShoppingCartProps> = (props: ShoppingCartProps) => {
                 </div>
                 <div className={s.shoppingCart__products}>
                     {
+                        Products.length === 0 ? 
+                        <h2 className={s.prompt}>No products in shopping cart</h2> :
                         Products.map((product: any) => {
                             return (
                                 <div className={s.shoppingCart__product}>
@@ -66,7 +68,7 @@ const ShoppingCart: FC<ShoppingCartProps> = (props: ShoppingCartProps) => {
                 </div>
                 <div className={s.shoppingCart__buttons}>
                     <button className="button proceed__btn" disabled={TotalPrice === 0} onClick={() => {navigate('/Checkout')}}>Proceed To Checkout</button>
-                    <Link to='' className={s.shoppingCart__shopping}>Continue Shopping</Link>
+                    <Link to='/' className={s.shoppingCart__shopping}>Continue Shopping</Link>
                 </div>
             </div>
         </div>
