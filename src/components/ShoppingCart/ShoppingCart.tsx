@@ -1,5 +1,4 @@
-import { FC, useState } from 'react';
-import QuantitySelector from '../../helpers/QuantitySelector';
+import { FC } from 'react';
 import s from './ShoppingCart.module.css';
 import ProductIcon from './../../assets/images/product.png';
 import Delete from './../../assets/images/delete.svg';
