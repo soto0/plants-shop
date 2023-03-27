@@ -222,6 +222,16 @@
       "productSize": "S",
       "productSKU": 1995751877967,
       "id": 2
+    },
+    {
+      "productId": 3,
+      "productTitle": "African Violet",
+      "productPrice": 199,
+      "user": "test",
+      "productAmount": 1,
+      "productSize": "S",
+      "productSKU": 1995751877968,
+      "id": 3
     }
   ]
 }

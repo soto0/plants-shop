@@ -1,9 +1,10 @@
 import { FC } from 'react';
-import s from './ShoppingCart.module.css';
-import ProductIcon from './../../assets/images/product.png';
-import Delete from './../../assets/images/delete.svg';
 import { Link } from 'react-router-dom';
+import s from './ShoppingCart.module.css';
+import Delete from './../../assets/images/delete.svg';
+import ProductIcon from './../../assets/images/product.png';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { deleteProductFromBasket } from '../../api/BasketToggle';
 import ShoppingCartQuantitySelector from './ShoppingCartQuantitySelector/ShoppingCartQuantitySelector';
 
 interface ShoppingCartProps {
@@ -11,9 +12,8 @@ interface ShoppingCartProps {
     GetShoppingCart: any
 };
 
-
 const ShoppingCart: FC<ShoppingCartProps> = (props: ShoppingCartProps) => {
-    const { Products } = useTypedSelector(state => state.ShoppingCart);
+    const { Products, TotalPrice } = useTypedSelector(state => state.ShoppingCart);
 
     return (
         <div className={s.shoppingCart__block}>
@@ -46,8 +46,11 @@ const ShoppingCart: FC<ShoppingCartProps> = (props: ShoppingCartProps) => {
                                         Id={product.id}
                                         GetShoppingCart={props.GetShoppingCart}
                                     />
-                                    <p className={s.shoppingCart__product_total}>$238.00</p>
-                                    <img src={Delete} alt="delete" className={s.shoppingCart__product_delete} />
+                                    <p className={s.shoppingCart__product_total}>{"$" + product.productPrice * product.productAmount + ".00"}</p>
+                                    <img src={Delete} alt="delete" className={s.shoppingCart__product_delete} onClick={() => {
+                                            deleteProductFromBasket(product.id); props.GetShoppingCart(props.User.userName);
+                                        }} 
+                                    />
                                 </div>
                             )
                         })
@@ -58,7 +61,7 @@ const ShoppingCart: FC<ShoppingCartProps> = (props: ShoppingCartProps) => {
                 <p className={s.shoppingCart__right_title}>Cart Totals</p>
                 <div className={s.shoppingCart__total}>
                     <p className={s.shoppingCart__total_title}>Total</p>
-                    <p className={s.shoppingCart__total_price}>$2,699.00</p>
+                    <p className={s.shoppingCart__total_price}>${TotalPrice}.00</p>
                 </div>
                 <div className={s.shoppingCart__buttons}>
                     <button className="button proceed__btn">Proceed To Checkout</button>

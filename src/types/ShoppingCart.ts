@@ -1,5 +1,6 @@
 export interface ShoppingCartState {
     Products: any,
+    TotalPrice: number
 };
 
 export enum ShoppingCartTypes {
@@ -9,6 +10,7 @@ export enum ShoppingCartTypes {
 interface getShoppingCartProducts {
     type: ShoppingCartTypes.GET_SHOPPING_CART_PRODUCTS,
     products: [],
+    totalPrice: number
 };
 
 export type ShoppingCartAction = getShoppingCartProducts;
