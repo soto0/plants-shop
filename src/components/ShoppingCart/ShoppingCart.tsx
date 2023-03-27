@@ -6,6 +6,7 @@ import ProductIcon from './../../assets/images/product.png';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { deleteProductFromBasket } from '../../api/BasketToggle';
 import ShoppingCartQuantitySelector from './ShoppingCartQuantitySelector/ShoppingCartQuantitySelector';
+import { useActions } from '../../hooks/useActions';
 
 interface ShoppingCartProps {
     User: any,
@@ -14,6 +15,7 @@ interface ShoppingCartProps {
 
 const ShoppingCart: FC<ShoppingCartProps> = (props: ShoppingCartProps) => {
     const { Products, TotalPrice } = useTypedSelector(state => state.ShoppingCart);
+    const { getBasketToggle } = useActions();
     const navigate = useNavigate();
 
     return (
@@ -27,36 +29,36 @@ const ShoppingCart: FC<ShoppingCartProps> = (props: ShoppingCartProps) => {
                 </div>
                 <div className={s.shoppingCart__products}>
                     {
-                        Products.length === 0 ? 
-                        <h2 className={s.prompt}>No products in shopping cart</h2> :
-                        Products.map((product: any) => {
-                            return (
-                                <div className={s.shoppingCart__product}>
-                                    <img src={ProductIcon} alt="product" className={s.shoppingCart__product_icon} />
-                                    <div className={s.shoppingCart__product_text}>
-                                        <p className={s.shoppingCart__product_title}>{product.productTitle}</p>
-                                        <p className={s.shoppingCart__product_sku}>SKU: <span>{product.productSKU}</span></p>
+                        Products.length === 0 ?
+                            <h2 className={s.prompt}>No products in shopping cart</h2> :
+                            Products.map((product: any) => {
+                                return (
+                                    <div className={s.shoppingCart__product}>
+                                        <img src={ProductIcon} alt="product" className={s.shoppingCart__product_icon} />
+                                        <div className={s.shoppingCart__product_text}>
+                                            <p className={s.shoppingCart__product_title}>{product.productTitle}</p>
+                                            <p className={s.shoppingCart__product_sku}>SKU: <span>{product.productSKU}</span></p>
+                                        </div>
+                                        <p className={s.shoppingCart__product_price}>${product.productPrice}.00</p>
+                                        <ShoppingCartQuantitySelector
+                                            ProductId={product.productId}
+                                            ProductTitle={product.productTitle}
+                                            ProductPrice={product.productPrice}
+                                            User={props.User.userName}
+                                            Count={product.productAmount}
+                                            ProductSize={product.productSize}
+                                            ProductSKU={product.productSKU}
+                                            Id={product.id}
+                                            GetShoppingCart={props.GetShoppingCart}
+                                        />
+                                        <p className={s.shoppingCart__product_total}>{"$" + product.productPrice * product.productAmount + ".00"}</p>
+                                        <img src={Delete} alt="delete" className={s.shoppingCart__product_delete} onClick={() => {
+                                            deleteProductFromBasket(product.id); props.GetShoppingCart(props.User.userName); getBasketToggle(props.User.userName);;
+                                        }}
+                                        />
                                     </div>
-                                    <p className={s.shoppingCart__product_price}>${product.productPrice}.00</p>
-                                    <ShoppingCartQuantitySelector
-                                        ProductId={product.productId}
-                                        ProductTitle={product.productTitle}
-                                        ProductPrice={product.productPrice}
-                                        User={props.User.userName}
-                                        Count={product.productAmount}
-                                        ProductSize={product.productSize}
-                                        ProductSKU={product.productSKU} 
-                                        Id={product.id}
-                                        GetShoppingCart={props.GetShoppingCart}
-                                    />
-                                    <p className={s.shoppingCart__product_total}>{"$" + product.productPrice * product.productAmount + ".00"}</p>
-                                    <img src={Delete} alt="delete" className={s.shoppingCart__product_delete} onClick={() => {
-                                            deleteProductFromBasket(product.id); props.GetShoppingCart(props.User.userName);
-                                        }} 
-                                    />
-                                </div>
-                            )
-                        })
+                                )
+                            })
                     }
                 </div>
             </div>
@@ -67,7 +69,7 @@ const ShoppingCart: FC<ShoppingCartProps> = (props: ShoppingCartProps) => {
                     <p className={s.shoppingCart__total_price}>${TotalPrice}.00</p>
                 </div>
                 <div className={s.shoppingCart__buttons}>
-                    <button className="button proceed__btn" disabled={TotalPrice === 0} onClick={() => {navigate('/Checkout')}}>Proceed To Checkout</button>
+                    <button className="button proceed__btn" disabled={TotalPrice === 0} onClick={() => { navigate('/Checkout') }}>Proceed To Checkout</button>
                     <Link to='/' className={s.shoppingCart__shopping}>Continue Shopping</Link>
                 </div>
             </div>

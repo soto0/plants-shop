@@ -19,7 +19,7 @@ const ProductPage: FC = () => {
 
         if(User.userName !== undefined) {
             getLikesProduct(User.userName);
-        }    
+        }
     }, [User, productId]);
 
     return (

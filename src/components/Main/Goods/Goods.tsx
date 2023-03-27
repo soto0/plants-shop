@@ -7,6 +7,9 @@ import { useTypedSelector } from '../../../hooks/useTypedSelector';
 interface GoodsProps {
     Plants: any,
     GetPlants: any,
+    SetNewArrivals: any,
+    SetSale: any,
+    PriceCount: number | undefined
 }
 
 const Goods: FC<GoodsProps> = (props: GoodsProps) => {
@@ -16,15 +19,21 @@ const Goods: FC<GoodsProps> = (props: GoodsProps) => {
     const { BasketToggle } = useTypedSelector(state => state.Basket);
 
     let getAllPlants = () => {
-        props.GetPlants(undefined, undefined, undefined, undefined, undefined);
+        props.GetPlants(undefined, undefined, undefined, undefined, props.PriceCount);
+        props.SetNewArrivals(undefined);
+        props.SetSale(undefined);
     };
 
     let getNewArrivals = () => {
-        props.GetPlants(true, undefined, undefined, undefined, undefined);
+        props.GetPlants(true, undefined, undefined, undefined, props.PriceCount);
+        props.SetNewArrivals(true);
+        props.SetSale(undefined);
     };
 
     let getSale = () => {
-        props.GetPlants(undefined, true, undefined, undefined, undefined);
+        props.GetPlants(undefined, true, undefined, undefined, props.PriceCount);
+        props.SetSale(true);
+        props.SetNewArrivals(undefined);
     };
 
     let selectorToggle = () => {
@@ -67,7 +76,7 @@ const Goods: FC<GoodsProps> = (props: GoodsProps) => {
                 <NavLink to='New-Arrivals' onClick={getNewArrivals} className={({ isActive }) => isActive ? s.goods__menu_item_active : s.goods__menu_item}>New Arrivals</NavLink>
                 <NavLink to='Sale' onClick={getSale} className={({ isActive }) => isActive ? s.goods__menu_item_active : s.goods__menu_item}>Sale</NavLink>
                 <div className={s.sort__block}>
-                    <p className={s.sort__text}>Short by:</p>
+                    <p className={s.sort__text}>Sort by:</p>
                     <p className={s.sort__selector} onClick={selectorToggle}>{sortValue ? sortValue : 'Default Sorting'}</p>
                     {
                         selectorActive ?

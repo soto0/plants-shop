@@ -1,22 +1,24 @@
 import { Field, Form, Formik } from 'formik';
 import { FC, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import s from './../Categories.module.css';
 
 interface PriceSort {
     GetPlants: any,
+    Plants: [],
+    Category: string | undefined,
+    Size: string | undefined,
+    NewArrivals: boolean,
+    Sale: boolean,
+    PriceCount: number | undefined,
+    SetPriceCount: any
 }
 
 const PriceSort: FC<PriceSort> = (props: PriceSort) => {
-    const [ priceCount, setPriceCount ] = useState<number>();
-    const navigate = useNavigate();
-    
     return (
         <Formik
-            initialValues={{ price: 39 }}
+            initialValues={{ price: 199 }}
             onSubmit={values => {
-                props.GetPlants(undefined, undefined, undefined, undefined, values.price);
-                navigate('Price/' + values.price);
+                props.GetPlants(props.NewArrivals, props.Sale, props.Category, props.Size, values.price);
             }}
         >
             {({ values, handleBlur }) => (
@@ -28,10 +30,10 @@ const PriceSort: FC<PriceSort> = (props: PriceSort) => {
                         min='39'
                         max='199'
                         values={values}
-                        handleChange={setPriceCount(values.price)}
+                        handleChange={props.SetPriceCount(values.price)}
                         handleBlur={handleBlur}
                     />
-                    <p className="price__count">Price: <span>${priceCount}</span></p>
+                    <p className="price__count">Price: <span>${props.PriceCount}</span></p>
                     <button className="button filter__button" type='submit'>Filter</button>
                 </Form>
             )}
@@ -40,9 +42,3 @@ const PriceSort: FC<PriceSort> = (props: PriceSort) => {
 };
 
 export default PriceSort;
-
-<div className={s.price__block}>
-            <input type="range" min="39" max="1230" className={s.price} />
-            <p className="price__count">Price: <span>$39</span></p>
-            <button className="button filter__button">Filter</button>
-        </div>
