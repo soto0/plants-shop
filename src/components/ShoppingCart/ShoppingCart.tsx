@@ -5,10 +5,16 @@ import ProductIcon from './../../assets/images/product.png';
 import Delete from './../../assets/images/delete.svg';
 import { Link } from 'react-router-dom';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import ShoppingCartQuantitySelector from './ShoppingCartQuantitySelector/ShoppingCartQuantitySelector';
 
-const ShoppingCart: FC = () => {
+interface ShoppingCartProps {
+    User: any,
+    GetShoppingCart: any
+};
+
+
+const ShoppingCart: FC<ShoppingCartProps> = (props: ShoppingCartProps) => {
     const { Products } = useTypedSelector(state => state.ShoppingCart);
-    const [ count, setCount] = useState<number>(1);
 
     return (
         <div className={s.shoppingCart__block}>
@@ -30,7 +36,17 @@ const ShoppingCart: FC = () => {
                                         <p className={s.shoppingCart__product_sku}>SKU: <span>{product.productSKU}</span></p>
                                     </div>
                                     <p className={s.shoppingCart__product_price}>${product.productPrice}.00</p>
-                                    <QuantitySelector SetCount={setCount} Count={count} />
+                                    <ShoppingCartQuantitySelector
+                                        ProductId={product.productId}
+                                        ProductTitle={product.productTitle}
+                                        ProductPrice={product.productPrice}
+                                        User={props.User.userName}
+                                        Count={product.productAmount}
+                                        ProductSize={product.productSize}
+                                        ProductSKU={product.productSKU} 
+                                        Id={product.id}
+                                        GetShoppingCart={props.GetShoppingCart}
+                                    />
                                     <p className={s.shoppingCart__product_total}>$238.00</p>
                                     <img src={Delete} alt="delete" className={s.shoppingCart__product_delete} />
                                 </div>

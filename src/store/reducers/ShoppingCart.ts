@@ -1,7 +1,7 @@
 import { ShoppingCartState, ShoppingCartAction, ShoppingCartTypes } from './../../types/ShoppingCart';
 
 const initialState: ShoppingCartState = {
-    Products: []
+    Products: [],
 };
 
 export const ShoppingCartReducer = (state = initialState, action: ShoppingCartAction): ShoppingCartState => {
@@ -10,5 +10,5 @@ export const ShoppingCartReducer = (state = initialState, action: ShoppingCartAc
             return { ...state, Products: action.products }
         default: 
             return state
-    }
-}
+    };
+};

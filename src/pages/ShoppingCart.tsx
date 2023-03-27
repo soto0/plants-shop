@@ -24,7 +24,7 @@ const ShoppingCartPage: FC = () => {
         <main>
             <div className="container">
                 <BreadCrumps Url={'Shop / Shopping Cart'} />
-                <ShoppingCart />
+                <ShoppingCart User={User} GetShoppingCart={getShoppingCart} />
                 <ShoppingCartSlider />
             </div>
         </main>
