@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import s from './ShoppingCart.module.css';
 import Delete from './../../assets/images/delete.svg';
 import ProductIcon from './../../assets/images/product.png';
@@ -14,6 +14,7 @@ interface ShoppingCartProps {
 
 const ShoppingCart: FC<ShoppingCartProps> = (props: ShoppingCartProps) => {
     const { Products, TotalPrice } = useTypedSelector(state => state.ShoppingCart);
+    const navigate = useNavigate();
 
     return (
         <div className={s.shoppingCart__block}>
@@ -64,7 +65,7 @@ const ShoppingCart: FC<ShoppingCartProps> = (props: ShoppingCartProps) => {
                     <p className={s.shoppingCart__total_price}>${TotalPrice}.00</p>
                 </div>
                 <div className={s.shoppingCart__buttons}>
-                    <button className="button proceed__btn">Proceed To Checkout</button>
+                    <button className="button proceed__btn" disabled={TotalPrice === 0} onClick={() => {navigate('/Checkout')}}>Proceed To Checkout</button>
                     <Link to='' className={s.shoppingCart__shopping}>Continue Shopping</Link>
                 </div>
             </div>
