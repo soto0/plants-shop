@@ -202,32 +202,8 @@
     }
   ],
   "Likes": [],
-  "Basket": [
-    {
-      "productId": 1,
-      "productTitle": "Barberton Daisy",
-      "productPrice": 119,
-      "user": "test",
-      "productAmount": 3,
-      "productSize": "S",
-      "productSKU": 1995751877966,
-      "id": 1
-    }
-  ],
+  "Basket": [],
   "Orders": [
-    {
-      "firstName": "Nikita",
-      "lastName": "Yusupov",
-      "country": "Kingdom of Bahrain",
-      "city": "Moscow",
-      "streetAddress": "Home 4",
-      "streetAddressTwo": "kv 66",
-      "zip": "222",
-      "email": "kaden0065@gmail.com",
-      "numberCode": "+1784",
-      "user": "test",
-      "id": 1
-    }
   ],
   "NumberCodes": [
     {

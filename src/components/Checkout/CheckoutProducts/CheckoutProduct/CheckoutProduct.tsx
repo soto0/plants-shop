@@ -6,8 +6,8 @@ interface CheckoutProductProps {
     ProductTitle: string,
     ProductPrice: number,
     ProductSKU: number,
-    ProductCount: number
-}
+    ProductCount: number,
+};
 
 const CheckoutProduct: FC<CheckoutProductProps> = (props: CheckoutProductProps) => {
     return (

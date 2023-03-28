@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import * as yup from 'yup';
 import s from './Checkout.module.css';
 import { Field, Form, Formik } from 'formik';
@@ -7,11 +7,17 @@ import CheckoutNumberCodeSelector from './CheckoutSelectors/CheckoutNumberCodeSe
 import CheckoutProducts from './CheckoutProducts/CheckoutProducts';
 import { addOrder } from '../../api/AddOrder';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { clearBasket } from '../../api/ClearBasket';
+import { useActions } from '../../hooks/useActions';
 
 const Checkout: FC = () => {
     const { User } = useTypedSelector(state => state.Login);
     const [ country, setCountry ] = useState('Select a country / region');
     const [ numberCode, setNumberCode ] = useState('+7');
+    const [ orderCreate, setOrderCreate ] = useState(false);
+    const { Products, TotalPrice } = useTypedSelector(state => state.ShoppingCart);
+    const { getShoppingCart } = useActions();
+
 
     const zipValidation = /^\d+$/;
     const validationSchema = yup.object().shape({
@@ -22,6 +28,10 @@ const Checkout: FC = () => {
         zip: yup.string().required('*').matches(zipValidation, '*'),
         email: yup.string().required('*').email('Email is invalid'),
     });
+
+    useEffect(() => {
+        getShoppingCart(User.userName);
+    }, []);
 
     return (
         <Formik
@@ -47,7 +57,13 @@ const Checkout: FC = () => {
                     numberCode,
                     User.userName
                 );
+                setOrderCreate(true);
                 resetForm();
+
+                for (let i = 1; i <= Products.length; i++) {
+                    clearBasket(i);
+                };
+                getShoppingCart(User.userName);
             }}
             validationSchema={validationSchema}
         >
@@ -170,7 +186,13 @@ const Checkout: FC = () => {
                     </div>
                     <div className={s.form__right}>
                         <h3 className={s.title}>Your Order</h3>
-                        <CheckoutProducts User={User} />
+                        <CheckoutProducts 
+                            User={User} 
+                            OrderCreate={orderCreate} 
+                            SetOrderCreate={setOrderCreate}
+                            Products={Products}
+                            TotalPrice={TotalPrice}
+                        />
                         <button type='submit' disabled={!isValid && country === 'Select a country / region'} className="order button">Place Order</button>
                     </div>
                 </Form>

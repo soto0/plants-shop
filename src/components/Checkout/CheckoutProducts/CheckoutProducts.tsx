@@ -1,21 +1,16 @@
-import {FC, useEffect} from 'react';
-import { useActions } from '../../../hooks/useActions';
-import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import {FC} from 'react';
 import CheckoutProduct from './CheckoutProduct/CheckoutProduct';
 import s from './CheckoutProducts.module.css';
 
 interface CheckoutProducts {
-    User: any
+    User: any,
+    OrderCreate: boolean,
+    SetOrderCreate: any,
+    Products: any,
+    TotalPrice: number
 };
 
 const CheckoutProducts: FC<CheckoutProducts> = (props: CheckoutProducts) => {
-    const { Products, TotalPrice } = useTypedSelector(state => state.ShoppingCart);
-    const { getShoppingCart } = useActions();
-
-    useEffect(() => {
-        getShoppingCart(props.User.userName);
-    }, []);
-    
     return (
         <div className={s.products}>
             <div className={s.products__top}>
@@ -24,7 +19,7 @@ const CheckoutProducts: FC<CheckoutProducts> = (props: CheckoutProducts) => {
             </div>
             <div className={s.products__bottom}>
                 {
-                    Products.map((product: any) => {
+                    props.Products.map((product: any) => {
                         return (
                             <CheckoutProduct 
                                 ProductTitle={product.productTitle}
@@ -37,7 +32,7 @@ const CheckoutProducts: FC<CheckoutProducts> = (props: CheckoutProducts) => {
                 }
                 <div className={s.product__total}>
                     <p className={s.product__total_title}>Total</p>
-                    <p className={s.product__total_price}>${TotalPrice}.00</p>
+                    <p className={s.product__total_price}>${props.TotalPrice}.00</p>
                 </div>
             </div>
         </div>
