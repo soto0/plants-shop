@@ -1,9 +1,14 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import * as yup from 'yup';
 import s from './Checkout.module.css';
 import { Field, Form, Formik } from 'formik';
+import CheckoutCountrySelector from './CheckoutSelectors/CheckoutCountrySelector';
+import CheckoutNumberCodeSelector from './CheckoutSelectors/CheckoutNumberCodeSelector';
 
 const Checkout: FC = () => {
+    const [ country, setCountry ] = useState('Select a country / region');
+    const [ numberCode, setNumberCode ] = useState('+7');
+
     const zipValidation = /^\d+$/;
     const validationSchema = yup.object().shape({
         first_name: yup.string().required('*'),
@@ -68,7 +73,7 @@ const Checkout: FC = () => {
                             </div>
                             <div className={s.form__block}>
                                 <label htmlFor="country" className={s.form__field_label}>Country / Region</label>
-                                <div className={s.country__selector} id='country'>Select a country / region</div>
+                                <CheckoutCountrySelector SelectorValue={country} SelectorSetValue={setCountry} />
                             </div>
                             <div className={s.form__block}>
                                 <label htmlFor="city" className={s.form__field_label}>
@@ -111,10 +116,6 @@ const Checkout: FC = () => {
                                 />
                             </div>
                             <div className={s.form__block}>
-                                <label htmlFor="state" className={s.form__field_label}>State</label>
-                                <div className={s.state__selector} id='state'>Select a state</div>
-                            </div>
-                            <div className={s.form__block}>
                                 <label htmlFor="zip" className={s.form__field_label}>
                                     Zip
                                     {errors.zip && <p className={s.error}>{errors.zip}</p>}
@@ -146,7 +147,7 @@ const Checkout: FC = () => {
                             </div>
                             <div className={s.form__block}>
                                 <label htmlFor="phone" className={s.form__field_label}>Phone Number</label>
-                                <div className={s.phone__selector} id='phone'>+966</div>
+                                <CheckoutNumberCodeSelector SelectorValue={numberCode} SelectorSetValue={setNumberCode} />
                             </div>
                         </div>
                     </div>

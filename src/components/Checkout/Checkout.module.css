@@ -12,21 +12,25 @@
 }
 
 .form__field,
-.phone__selector,
-.state__selector,
-.country__selector {
+.selector {
     max-width: 350px;
     border: solid 1px #EAEAEA;
     color: #A5A5A5;
     font-size: 14px;
     border-radius: 5px;
     padding: 12px 13px;
+    
 }
 
-.phone__selector,
-.state__selector,
-.country__selector {
+.selector {
+    position: relative;
     cursor: pointer;
+    padding: 0;
+}
+
+.selector p {
+    padding: 12px 13px;
+    color: #A5A5A5;
 }
 
 .form__field_label {
@@ -47,4 +51,34 @@
 
 .phone__selector {
     max-width: 78px;
+}
+
+.selector__options {
+    position: absolute;
+    background-color: white;
+    margin-top: -3px;
+    width: 100.6%;
+    left: 0;
+    margin-left: -1px;
+    border-radius: 5px;
+    max-height: 125px;
+    overflow-y: scroll;
+}
+
+.selector__options::-webkit-scrollbar {
+    display: none;
+  }
+
+.selector__option {
+    padding: 10px;
+    transition: all 0.2s;
+    font-weight: 700;
+    border-bottom: solid 1px #EAEAEA;
+    border-left: solid 1px #EAEAEA;
+    border-right: solid 1px #EAEAEA;
+}
+
+.selector__option:hover {
+    background-color: #46A358;
+    color: white;
 }
