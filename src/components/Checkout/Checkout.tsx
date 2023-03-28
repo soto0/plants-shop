@@ -60,9 +60,8 @@ const Checkout: FC = () => {
                 setOrderCreate(true);
                 resetForm();
 
-                for (let i = 1; i <= Products.length; i++) {
-                    clearBasket(i);
-                };
+                Products.map((product:any) => clearBasket(product.id));
+
                 getShoppingCart(User.userName);
             }}
             validationSchema={validationSchema}
