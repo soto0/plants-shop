@@ -5,6 +5,7 @@ import ProductPage from './pages/Product';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import ShoppingCartPage from './pages/ShoppingCart';
+import CheckoutPage from './pages/Checkout';
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
           </Route>
           <Route path='/Product/:productId' element={<ProductPage />}></Route>
           <Route path='/Shopping-Cart' element={<ShoppingCartPage />}></Route>
+          <Route path='/Checkout' element={<CheckoutPage />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

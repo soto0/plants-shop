@@ -1,5 +1,5 @@
 import {FC, useEffect} from 'react';
-import BreadCrumps from '../components/BreadСrumps/BreadCrumpts';
+import BreadCrumps from '../components/BreadCrumps/BreadCrumps';
 import ProductBottom from '../components/Product/ProductBottom/ProductBottom';
 import ProductCenter from '../components/Product/ProductCenter/ProductCenter';
 import ProductTop from '../components/Product/ProductTop/ProductTop';

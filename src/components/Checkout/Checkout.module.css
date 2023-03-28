@@ -1,0 +1,30 @@
+.form__left {
+    display: grid;
+    gap: 30px 22px;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(2, 350px);
+    margin-top: 21px;
+    align-items: end;
+}
+
+.form__field,
+.phone__selector,
+.state__selector,
+.country__selector {
+    max-width: 350px;
+    border: solid 1px #EAEAEA;
+    color: #A5A5A5;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 12px 13px;
+}
+
+.form__field_label {
+    font-size: 15px;
+}
+
+.form__block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

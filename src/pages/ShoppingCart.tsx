@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import BreadCrumps from '../components/BreadСrumps/BreadCrumpts';
+import BreadCrumps from '../components/BreadCrumps/BreadCrumps';
 import ShoppingCart from '../components/ShoppingCart/ShoppingCart';
 import ShoppingCartSlider from '../components/ShoppingCart/ShoppingCartSlider/ShoppingCartSlider';
 import { useActions } from '../hooks/useActions';
