@@ -140,6 +140,14 @@ footer {
     padding: 12px 20px;
 }
 
+.order {
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 15px;
+    margin-top: 61px;
+    width: 100%;
+}
+
 .login {
     margin-left: 5px;
     display: flex;

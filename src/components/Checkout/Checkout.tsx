@@ -4,8 +4,12 @@ import s from './Checkout.module.css';
 import { Field, Form, Formik } from 'formik';
 import CheckoutCountrySelector from './CheckoutSelectors/CheckoutCountrySelector';
 import CheckoutNumberCodeSelector from './CheckoutSelectors/CheckoutNumberCodeSelector';
+import CheckoutProducts from './CheckoutProducts/CheckoutProducts';
+import { addOrder } from '../../api/AddOrder';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const Checkout: FC = () => {
+    const { User } = useTypedSelector(state => state.Login);
     const [ country, setCountry ] = useState('Select a country / region');
     const [ numberCode, setNumberCode ] = useState('+7');
 
@@ -28,11 +32,22 @@ const Checkout: FC = () => {
                 street: '',
                 street_two: '',
                 zip: '',
-                email: '',
-                order_notes: ''
+                email: ''
             }}
-            onSubmit={values => {
-                console.log(values);
+            onSubmit={(values, { resetForm })=> {
+                addOrder(
+                    values.first_name, 
+                    values.last_name, 
+                    country, 
+                    values.city, 
+                    values.street, 
+                    values.street_two, 
+                    values.zip, 
+                    values.email, 
+                    numberCode,
+                    User.userName
+                );
+                resetForm();
             }}
             validationSchema={validationSchema}
         >
@@ -72,7 +87,9 @@ const Checkout: FC = () => {
                                 />
                             </div>
                             <div className={s.form__block}>
-                                <label htmlFor="country" className={s.form__field_label}>Country / Region</label>
+                                <label htmlFor="country" className={s.form__field_label}>
+                                    Country / Region{country === 'Select a country / region' ? <p className={s.error}>*</p> : undefined}
+                                </label>
                                 <CheckoutCountrySelector SelectorValue={country} SelectorSetValue={setCountry} />
                             </div>
                             <div className={s.form__block}>
@@ -98,7 +115,7 @@ const Checkout: FC = () => {
                                 <Field
                                     id='street'
                                     type='text'
-                                    name='street_address'
+                                    name='street'
                                     className={s.form__field}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
@@ -108,7 +125,7 @@ const Checkout: FC = () => {
                             <div className={s.form__block}>
                                 <Field
                                     type='text'
-                                    name='street_address_two'
+                                    name='street_two'
                                     className={s.form__field}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
@@ -150,6 +167,11 @@ const Checkout: FC = () => {
                                 <CheckoutNumberCodeSelector SelectorValue={numberCode} SelectorSetValue={setNumberCode} />
                             </div>
                         </div>
+                    </div>
+                    <div className={s.form__right}>
+                        <h3 className={s.title}>Your Order</h3>
+                        <CheckoutProducts User={User} />
+                        <button type='submit' disabled={!isValid && country === 'Select a country / region'} className="order button">Place Order</button>
                     </div>
                 </Form>
             )}
