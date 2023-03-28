@@ -1,4 +1,8 @@
-.form__left {
+.title {
+    margin-top: 36px;
+}
+
+.form__blocks {
     display: grid;
     gap: 30px 22px;
     grid-auto-flow: dense;
