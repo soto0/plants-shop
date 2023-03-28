@@ -19,12 +19,28 @@
     padding: 12px 13px;
 }
 
+.phone__selector,
+.state__selector,
+.country__selector {
+    cursor: pointer;
+}
+
 .form__field_label {
     font-size: 15px;
+    display: flex;
+    gap: 3px;
+}
+
+.error {
+    color: #F03800;
 }
 
 .form__block {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.phone__selector {
+    max-width: 78px;
 }

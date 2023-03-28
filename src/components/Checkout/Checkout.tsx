@@ -1,16 +1,27 @@
 import { FC } from 'react';
+import * as yup from 'yup';
 import s from './Checkout.module.css';
 import { Field, Form, Formik } from 'formik';
 
 const Checkout: FC = () => {
+    const zipValidation = /^\d+$/;
+    const validationSchema = yup.object().shape({
+        first_name: yup.string().required('*'),
+        last_name: yup.string().required('*'),
+        city: yup.string().required('*'),
+        street: yup.string().required('*'),
+        zip: yup.string().required('*').matches(zipValidation, '*'),
+        email: yup.string().required('*').email('Email is invalid'),
+    });
+
     return (
         <Formik
             initialValues={{
                 first_name: '',
                 last_name: '',
                 city: '',
-                street_address: '',
-                street_address_two: '',
+                street: '',
+                street_two: '',
                 zip: '',
                 email: '',
                 order_notes: ''
@@ -18,12 +29,16 @@ const Checkout: FC = () => {
             onSubmit={values => {
                 console.log(values);
             }}
+            validationSchema={validationSchema}
         >
             {({ values, handleChange, handleBlur, isValid, touched, errors }) => (
                 <Form className={s.form}>
                     <div className={s.form__left}>
                         <div className={s.form__block}>
-                            <label htmlFor="first_name" className={s.form__field_label}>First Name</label>
+                            <label htmlFor="first_name" className={s.form__field_label}>
+                                First Name
+                                {errors.first_name && <p className={s.error}>{errors.first_name}</p>}
+                            </label>
                             <Field
                                 id='first_name'
                                 type='text'
@@ -35,7 +50,10 @@ const Checkout: FC = () => {
                             />
                         </div>
                         <div className={s.form__block}>
-                            <label htmlFor="last_name" className={s.form__field_label}>Last Name</label>
+                            <label htmlFor="last_name" className={s.form__field_label}>
+                                Last Name
+                                {errors.last_name && <p className={s.error}>{errors.last_name}</p>}
+                            </label>
                             <Field
                                 id='last_name'
                                 type='text'
@@ -51,7 +69,10 @@ const Checkout: FC = () => {
                             <div className={s.country__selector} id='country'>Select a country / region</div>
                         </div>
                         <div className={s.form__block}>
-                            <label htmlFor="city" className={s.form__field_label}>Town / City</label>
+                            <label htmlFor="city" className={s.form__field_label}>
+                                Town / City
+                                {errors.city && <p className={s.error}>{errors.city}</p>}
+                            </label>
                             <Field
                                 id='city'
                                 type='text'
@@ -63,7 +84,10 @@ const Checkout: FC = () => {
                             />
                         </div>
                         <div className={s.form__block}>
-                            <label htmlFor="street" className={s.form__field_label}>Street Address</label>
+                            <label htmlFor="street" className={s.form__field_label}>
+                                Street Address
+                                {errors.street && <p className={s.error}>{errors.street}</p>}
+                            </label>
                             <Field
                                 id='street'
                                 type='text'
@@ -71,7 +95,7 @@ const Checkout: FC = () => {
                                 className={s.form__field}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                value={values.street_address}
+                                value={values.street}
                             />
                         </div>
                         <div className={s.form__block}>
@@ -81,7 +105,7 @@ const Checkout: FC = () => {
                                 className={s.form__field}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
-                                value={values.street_address_two}
+                                value={values.street_two}
                             />
                         </div>
                         <div className={s.form__block}>
@@ -89,7 +113,10 @@ const Checkout: FC = () => {
                             <div className={s.state__selector} id='state'>Select a state</div>
                         </div>
                         <div className={s.form__block}>
-                            <label htmlFor="zip" className={s.form__field_label}>Zip</label>
+                            <label htmlFor="zip" className={s.form__field_label}>
+                                Zip
+                                {errors.zip && <p className={s.error}>{errors.zip}</p>}
+                            </label>
                             <Field
                                 id='zip'
                                 type='text'
@@ -101,7 +128,10 @@ const Checkout: FC = () => {
                             />
                         </div>
                         <div className={s.form__block}>
-                            <label htmlFor="email" className={s.form__field_label}>Email address</label>
+                            <label htmlFor="email" className={s.form__field_label}>
+                                Email address
+                                {errors.email && <p className={s.error}>{errors.email}</p>}
+                            </label>
                             <Field
                                 id='email'
                                 type='email'
@@ -111,7 +141,6 @@ const Checkout: FC = () => {
                                 onBlur={handleBlur}
                                 value={values.email}
                             />
-
                         </div>
                         <div className={s.form__block}>
                             <label htmlFor="phone" className={s.form__field_label}>Phone Number</label>
