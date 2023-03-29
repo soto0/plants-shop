@@ -26,6 +26,6 @@ export const getNumberCodes = () => {
 
 export const ClearSelectors = () => {
     return (dispatch: Dispatch<CheckoutAction>) => {
-        dispatch({ type: CheckoutTypes.CLEAR_SELECTORS, countries: [], numberCodes: []});
+        dispatch({ type: CheckoutTypes.CLEAR_SELECTORS, countries: [], numberCodes: [] });
     };
 };

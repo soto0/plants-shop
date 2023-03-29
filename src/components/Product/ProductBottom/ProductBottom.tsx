@@ -20,7 +20,7 @@ const ProductBottom: FC<ProductBottomProps> = (props: ProductBottomProps) => {
             <OfferSlider 
                 LikesProduct={LikesProduct} 
                 BasketToggle={BasketToggle} 
-                FilterSlider={FilterSlider} 
+                FilterSlider={FilterSlider}
             />
         </div>
     );

@@ -9,6 +9,6 @@ export const getPosts = () => {
             dispatch({ type: PostsTypes.GET_POSTS, posts: response.data });
         } catch (error) {
             console.error(error);
-        }
+        };
     };
 };

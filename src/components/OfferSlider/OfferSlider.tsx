@@ -4,9 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import ProductCard from './../Main/ProductCard/ProductCard';
 
 interface OfferSlider {
-    LikesProduct: any,
-    BasketToggle: any,
-    FilterSlider: any
+    LikesProduct: [],
+    BasketToggle: [],
+    FilterSlider: any 
 };
 
 const OfferSlider: FC<OfferSlider> = (props: OfferSlider) => {
@@ -17,11 +17,12 @@ const OfferSlider: FC<OfferSlider> = (props: OfferSlider) => {
                 modules={[Pagination]}
                 spaceBetween={52}
                 pagination={{ clickable: true }}
+                key={1}
             >
                 {
                     props.FilterSlider.map((plant: any) => {
                         return (
-                            <SwiperSlide className="offer__slide">
+                            <SwiperSlide className="offer__slide" key={plant.id}>
                                 <ProductCard 
                                     Category={plant.category} 
                                     Id={plant.id} 
@@ -34,7 +35,7 @@ const OfferSlider: FC<OfferSlider> = (props: OfferSlider) => {
                                     Title={plant.title} 
                                     SKU={plant.sku}
                                     LikesProduct={props.LikesProduct} 
-                                    BasketToggleProduct={props.BasketToggle} 
+                                    BasketToggleProduct={props.BasketToggle}
                                 />
                             </SwiperSlide>
                         )

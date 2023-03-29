@@ -201,15 +201,21 @@
       "id": 3
     }
   ],
-  "Likes": [],
+  "Likes": [
+    {
+      "likesProductId": 1,
+      "user": "test",
+      "id": 1
+    }
+  ],
   "Basket": [
     {
       "productId": 1,
       "productTitle": "Barberton Daisy",
       "productPrice": 119,
       "user": "test",
-      "productAmount": 1,
-      "productSize": "S",
+      "productAmount": 3,
+      "productSize": "XL",
       "productSKU": 1995751877966,
       "id": 1
     }

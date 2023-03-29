@@ -199,9 +199,6 @@ const Checkout: FC = () => {
                     <div className={s.form__right}>
                         <h3 className={s.title}>Your Order</h3>
                         <CheckoutProducts 
-                            User={User} 
-                            OrderCreate={orderCreate} 
-                            SetOrderCreate={setOrderCreate}
                             Products={Products}
                             TotalPrice={TotalPrice}
                         />

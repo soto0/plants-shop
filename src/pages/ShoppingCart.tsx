@@ -15,7 +15,7 @@ const ShoppingCartPage: FC = () => {
     useEffect(() => {
         getSliderPlants();
 
-        if (User.userName !== undefined) {
+        if (User.userName) {
             getLikesProduct(User.userName);
         } else {
             navigate('/');

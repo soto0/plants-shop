@@ -12,9 +12,11 @@ const MainPage: FC = () => {
     const { Plants } = useTypedSelector(state => state.Plants);
     const { Posts } = useTypedSelector(state => state.Posts);
     const url = window.location.pathname;
-    const [ newArrivals, setNewArrivals ] = useState();
     const [ sale, setSale ] = useState();
-    const [ priceCount, setPriceCount ] = useState<number>();
+    const [ size, setSize ] = useState();
+    const [ category, setCategory ] = useState();
+    const [ newArrivals, setNewArrivals ] = useState();
+    const [ priceCount, setPriceCount ] = useState<number>(199);
 
     useEffect(() => {
         const checkUrl = () => {
@@ -36,7 +38,6 @@ const MainPage: FC = () => {
 
         checkUrl();
         getPosts();
-        getPlants();
     }, [url]);
 
     return (
@@ -51,6 +52,10 @@ const MainPage: FC = () => {
                         Sale={sale}
                         PriceCount={priceCount}
                         SetPriceCount={setPriceCount}
+                        Size={size}
+                        SetSize={setSize}
+                        Category={category}
+                        SetCategory={setCategory}
                     />
                     <Goods 
                         Plants={Plants} 
@@ -58,6 +63,8 @@ const MainPage: FC = () => {
                         SetNewArrivals={setNewArrivals} 
                         SetSale={setSale}  
                         PriceCount={priceCount}
+                        SetSize={setSize}
+                        SetCategory={setCategory}
                     />
                 </div>
                 <div className="main__bottom">

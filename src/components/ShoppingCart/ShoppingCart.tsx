@@ -33,7 +33,7 @@ const ShoppingCart: FC<ShoppingCartProps> = (props: ShoppingCartProps) => {
                             <h2 className={s.prompt}>No products in shopping cart</h2> :
                             Products.map((product: any) => {
                                 return (
-                                    <div className={s.shoppingCart__product}>
+                                    <div className={s.shoppingCart__product} key={product.id}>
                                         <img src={ProductIcon} alt="product" className={s.shoppingCart__product_icon} />
                                         <div className={s.shoppingCart__product_text}>
                                             <p className={s.shoppingCart__product_title}>{product.productTitle}</p>
@@ -50,6 +50,7 @@ const ShoppingCart: FC<ShoppingCartProps> = (props: ShoppingCartProps) => {
                                             ProductSKU={product.productSKU}
                                             Id={product.id}
                                             GetShoppingCart={props.GetShoppingCart}
+                                            key={product.id}
                                         />
                                         <p className={s.shoppingCart__product_total}>{"$" + product.productPrice * product.productAmount + ".00"}</p>
                                         <img src={Delete} alt="delete" className={s.shoppingCart__product_delete} onClick={() => {

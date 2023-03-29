@@ -33,7 +33,7 @@ const CheckoutCountrySelector: FC<CheckoutSelectorProps> = (props: CheckoutSelec
                     Countries ?
                         Countries.map((country: any) => {
                             return (
-                                <p className={s.selector__option} onClick={setValue}>{country.name.official}</p>
+                                <p className={s.selector__option} onClick={setValue} key={country.name.official}>{country.name.official}</p>
                             )
                         })
                         : undefined

@@ -33,7 +33,7 @@ const Popup: FC<PopupProps> = (props: PopupProps) => {
         password: yup.string().required("Password is required"),
     });
 
-    let togglePassword = () => {
+    const togglePassword = () => {
         if (passwordType === "password") {
             return setPasswordType("text");
         } else {
@@ -100,6 +100,7 @@ const Popup: FC<PopupProps> = (props: PopupProps) => {
                                         onBlur={handleBlur}
                                         value={values.password}
                                         placeholder="Password"
+                                        autoComplete="on"
                                     />
                                     <img src={togglePasswordIcon} alt="password__toggle" className={s.togglePassword} onClick={togglePassword} />
                                 </div>
@@ -115,6 +116,7 @@ const Popup: FC<PopupProps> = (props: PopupProps) => {
                                             onBlur={handleBlur}
                                             value={values.confirmPassword}
                                             placeholder="Confirm Password"
+                                            autoComplete="on"
                                         />
                                 }
                                 {touched.confirmPassword && errors.confirmPassword && url === 'Register' && <p className={s.error}>{errors.confirmPassword}</p>}

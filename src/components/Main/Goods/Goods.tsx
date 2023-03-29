@@ -9,8 +9,10 @@ interface GoodsProps {
     GetPlants: any,
     SetNewArrivals: any,
     SetSale: any,
-    PriceCount: number | undefined
-}
+    PriceCount: number | undefined,
+    SetSize: any,
+    SetCategory: any
+};
 
 const Goods: FC<GoodsProps> = (props: GoodsProps) => {
     const [selectorActive, setSelectorActive] = useState(false);
@@ -18,29 +20,35 @@ const Goods: FC<GoodsProps> = (props: GoodsProps) => {
     const { LikesProduct } = useTypedSelector(state => state.Likes);
     const { BasketToggle } = useTypedSelector(state => state.Basket);
 
-    let getAllPlants = () => {
+    const getAllPlants = () => {
         props.GetPlants(undefined, undefined, undefined, undefined, props.PriceCount);
         props.SetNewArrivals(undefined);
         props.SetSale(undefined);
+        props.SetSize(undefined);
+        props.SetCategory(undefined);
     };
 
-    let getNewArrivals = () => {
+    const getNewArrivals = () => {
         props.GetPlants(true, undefined, undefined, undefined, props.PriceCount);
         props.SetNewArrivals(true);
         props.SetSale(undefined);
+        props.SetSize(undefined);
+        props.SetCategory(undefined);
     };
 
-    let getSale = () => {
+    const getSale = () => {
         props.GetPlants(undefined, true, undefined, undefined, props.PriceCount);
         props.SetSale(true);
         props.SetNewArrivals(undefined);
+        props.SetSize(undefined);
+        props.SetCategory(undefined);
     };
 
-    let selectorToggle = () => {
+    const selectorToggle = () => {
         setSelectorActive(true);
     };
 
-    let onClickSort = (event: any) => {
+    const onClickSort = (event: any) => {
         setSortValue(event.target.innerText);
         setSelectorActive(false);
 

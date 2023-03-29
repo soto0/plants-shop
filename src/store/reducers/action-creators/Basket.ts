@@ -9,6 +9,6 @@ export const getBasketToggle = (user: string) => {
             dispatch({ type: BasketTypes.GET_BASKET__TOGGLE, basketToggle: response.data });
         } catch (error) {
             console.error(error);
-        }
+        };
     };
 };

@@ -3,7 +3,7 @@ import s from './BreadCrumps.module.css';
 
 interface BreadCrumpsProps {
     Url: string
-}
+};
 
 const BreadCrumps: FC<BreadCrumpsProps> = (props: BreadCrumpsProps) => {
     return (

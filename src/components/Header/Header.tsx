@@ -1,6 +1,6 @@
 import {FC, useEffect, useState} from 'react';
 import s from './Header.module.css';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from './../../assets/images/logo.svg';
 import Search from './../../assets/images/search.svg';
 import Basket from './../../assets/images/basket.svg';
@@ -13,8 +13,8 @@ const Header: FC = () => {
     const { BasketToggle } = useTypedSelector(state => state.Basket);
     const { IsAuth, User, Error } = useTypedSelector(state => state.Login);
     const [ popupActive, setPopupActive ] = useState(false);
+    const { getBasketToggle, getPlants } = useActions();
     const navigate = useNavigate();
-    const { getBasketToggle } = useActions();
 
     let PopupToggle = () => {
         setPopupActive(!popupActive);
@@ -25,6 +25,7 @@ const Header: FC = () => {
         if (User.userName) {
             getBasketToggle(User.userName);
         };
+        getPlants();
     }, [User]);
     
     return (

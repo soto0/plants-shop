@@ -33,7 +33,7 @@ const CheckoutNumberCodeSelector: FC<CheckoutSelectorProps> = (props: CheckoutSe
                     NumberCodes ?
                         NumberCodes.map((numberCode: any) => {
                             return (
-                                <p className={s.selector__option} onClick={setValue}>{numberCode.dial_code}</p>
+                                <p className={s.selector__option} onClick={setValue} key={numberCode.name}>{numberCode.dial_code}</p>
                             )
                         }) :
                         undefined

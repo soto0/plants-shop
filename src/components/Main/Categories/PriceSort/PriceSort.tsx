@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from 'formik';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import s from './../Categories.module.css';
 
 interface PriceSort {
@@ -11,7 +11,7 @@ interface PriceSort {
     Sale: boolean,
     PriceCount: number | undefined,
     SetPriceCount: any
-}
+};
 
 const PriceSort: FC<PriceSort> = (props: PriceSort) => {
     return (
@@ -21,7 +21,7 @@ const PriceSort: FC<PriceSort> = (props: PriceSort) => {
                 props.GetPlants(props.NewArrivals, props.Sale, props.Category, props.Size, values.price);
             }}
         >
-            {({ values, handleBlur }) => (
+            {({ values, handleBlur, handleChange }) => (
                 <Form className={s.price__block}>
                     <Field
                         type='range'
@@ -29,9 +29,9 @@ const PriceSort: FC<PriceSort> = (props: PriceSort) => {
                         className={s.price}
                         min='39'
                         max='199'
-                        values={values}
-                        handleChange={props.SetPriceCount(values.price)}
-                        handleBlur={handleBlur}
+                        value={values.price}
+                        onChange={(e: any) => {handleChange(e); props.SetPriceCount(e.target.value)}}
+                        onBlur={handleBlur}
                     />
                     <p className="price__count">Price: <span>${props.PriceCount}</span></p>
                     <button className="button filter__button" type='submit'>Filter</button>

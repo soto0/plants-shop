@@ -9,7 +9,7 @@ export const getPlant = (plantId: number) => {
             dispatch({ type: PlantTypes.GET_PLANT, plant: response.data });
         } catch (error) {
             console.error(error);
-        }
+        };
     };
 };
 
@@ -20,7 +20,7 @@ export const getSliderPlants = () => {
             dispatch({ type: PlantTypes.GET_SLIDER_PLANTS, sliderPlants: response.data });
         } catch (error) {
             console.error(error);
-        }
+        };
     };
 };
 

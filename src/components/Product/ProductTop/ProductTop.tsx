@@ -8,6 +8,7 @@ import ProductPrompt from './ProductPrompt/ProductPrompt';
 import { addProductToBasket } from '../../../api/BasketToggle';
 import { useNavigate } from 'react-router-dom';
 import QuantitySelector from '../../../helpers/QuantitySelector';
+import { useActions } from '../../../hooks/useActions';
 
 interface ProductTopProps {
     Plant: any,
@@ -23,6 +24,7 @@ const ProductTop: FC<ProductTopProps> = (props: ProductTopProps) => {
     const [ promptActive, setPromptActive] = useState<boolean>(false);
     const [ count, setCount ] = useState<number>(1);
     const navigate = useNavigate();
+    const { getBasketToggle } = useActions();
 
     const getSmallIcon = (e: any) => {
         props.GetLargeIcon(e.target.src);
@@ -33,11 +35,12 @@ const ProductTop: FC<ProductTopProps> = (props: ProductTopProps) => {
     };
 
     const onClickBuy = () => {
-        if (props.User.length === 0) {
+        if (!props.User.userName) {
             setPromptActive(true);
         } else {
-            addProductToBasket(props.Plant.id, props.Plant.Title, props.Plant.Price, props.User.userName, count, size, props.Plant.sku);
-            navigate('/Shop-cart');
+            getBasketToggle(props.User.userName);
+            addProductToBasket(props.Plant.id, props.Plant.title, props.Plant.price, props.User.userName, count, size, props.Plant.sku);
+            navigate('/Shopping-Cart');
         };
     };
 

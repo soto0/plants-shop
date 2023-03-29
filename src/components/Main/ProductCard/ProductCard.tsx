@@ -29,15 +29,15 @@ const ProductCard: FC<ProductCardProps> = (props: ProductCardProps) => {
     const { User } = useTypedSelector(state => state.Login);
 
     useEffect(() => {
-        if (User.userName !== undefined) {
+        if (User.userName) {
             getLikesProduct(User.userName);
-        }
+        };
     }, [User]);
 
     return (
         <div className={s.product}>
             <div className={s.product__top}>
-                {props.SaleInterest !== 0 ? <p className={s.sale}>{props.Sale}% OFF</p> : undefined}
+                {props.SaleInterest !== 0 ? <p className={s.sale}>{props.SaleInterest}% OFF</p> : undefined}
                 <img src={Product} alt="product" className={s.product__icon} />
                 <div className={s.product__menu}>
                     <BasketToggle 
@@ -71,7 +71,7 @@ const ProductCard: FC<ProductCardProps> = (props: ProductCardProps) => {
                     {props.OldPrice ? <p className={props.OldPrice ? s.product__price_old : s.product__sale_price}>$ {props.OldPrice + '.00'}</p> : undefined}
                 </div>
             </div>
-            {User?.length === 0 && promptActive ? <Prompt /> : undefined}
+            {!User.userName && promptActive ? <Prompt /> : undefined}
         </div>
     );
 };

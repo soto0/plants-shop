@@ -3,9 +3,6 @@ import CheckoutProduct from './CheckoutProduct/CheckoutProduct';
 import s from './CheckoutProducts.module.css';
 
 interface CheckoutProducts {
-    User: any,
-    OrderCreate: boolean,
-    SetOrderCreate: any,
     Products: any,
     TotalPrice: number
 };
@@ -21,7 +18,8 @@ const CheckoutProducts: FC<CheckoutProducts> = (props: CheckoutProducts) => {
                 {
                     props.Products.map((product: any) => {
                         return (
-                            <CheckoutProduct 
+                            <CheckoutProduct
+                                key={product.id} 
                                 ProductTitle={product.productTitle}
                                 ProductPrice={product.productPrice * product.productAmount}
                                 ProductSKU={product.productSKU}

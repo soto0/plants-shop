@@ -10,23 +10,24 @@ interface CategoriesProps {
     NewArrivals: any,
     Sale: any,
     PriceCount: number | undefined,
-    SetPriceCount: any
+    SetPriceCount: any,
+    Size: string | undefined,
+    Category: string | undefined,
+    SetSize: any,
+    SetCategory: any
 };
 
 const Categories: FC<CategoriesProps> = (props: CategoriesProps) => {
-    const [ category, setCategory ] = useState();
-    const [ size, setSize ] = useState();
-
-    let onClickCategory = (event: any) => {
+    const onClickCategory = (event: any) => {
         props.GetPlants(undefined, undefined, event.target.href.slice(22), undefined, props.PriceCount);
-        setCategory(event.target.href.slice(22));
-        setSize(undefined);
+        props.SetCategory(event.target.href.slice(22));
+        props.SetSize(undefined);
     };
     
-    let onCLickSize = (event: any) => {
+    const onCLickSize = (event: any) => {
         props.GetPlants(undefined, undefined, undefined, event.target.href.slice(22), props.PriceCount);
-        setSize(event.target.href.slice(22));
-        setCategory(undefined);
+        props.SetSize(event.target.href.slice(22));
+        props.SetCategory(undefined);
     };
 
     return (
@@ -47,8 +48,8 @@ const Categories: FC<CategoriesProps> = (props: CategoriesProps) => {
             <PriceSort 
                 GetPlants={props.GetPlants} 
                 Plants={props.Plants} 
-                Category={category} 
-                Size={size}
+                Category={props.Category} 
+                Size={props.Size}
                 NewArrivals={props.NewArrivals}
                 Sale={props.Sale}
                 PriceCount={props.PriceCount}

@@ -51,26 +51,6 @@ const Footer: FC = () => {
                     <a href="tel:8801911717490" className={s.number}>+88 01911 717 490</a>
                 </div>
                 <div className={s.footer__bottom}>
-                    <div className={s.footer__account}>
-                        <h3 className={s.title}>My Account</h3>
-                        <ul className={s.menu__list}>
-                            <li className={s.menu__item}>
-                                <Link to='' className={s.menu__link}>My Account</Link>
-                            </li>
-                            <li className={s.menu__item}>
-                                <Link to='' className={s.menu__link}>Our stores</Link>
-                            </li>
-                            <li className={s.menu__item}>
-                                <Link to='' className={s.menu__link}>Contact us</Link>
-                            </li>
-                            <li className={s.menu__item}>
-                                <Link to='' className={s.menu__link}>Career</Link>
-                            </li>
-                            <li className={s.menu__item}>
-                                <Link to='' className={s.menu__link}>Specials</Link>
-                            </li>
-                        </ul>
-                    </div>
                     <div className={s.footer__help}>
                         <h3 className={s.title}>Help & Guide</h3>
                         <ul className={s.menu__list}>
@@ -88,26 +68,6 @@ const Footer: FC = () => {
                             </li>
                             <li className={s.menu__item}>
                                 <Link to='' className={s.menu__link}>How to Return</Link>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className={s.footer__categories}>
-                        <h3 className={s.title}>Categories</h3>
-                        <ul className={s.menu__list}>
-                            <li className={s.menu__item}>
-                                <Link to='' className={s.menu__link}>House Plants</Link>
-                            </li>
-                            <li className={s.menu__item}>
-                                <Link to='' className={s.menu__link}>Potter Plants</Link>
-                            </li>
-                            <li className={s.menu__item}>
-                                <Link to='' className={s.menu__link}>Seeds</Link>
-                            </li>
-                            <li className={s.menu__item}>
-                                <Link to='' className={s.menu__link}>Small Plants</Link>
-                            </li>
-                            <li className={s.menu__item}>
-                                <Link to='' className={s.menu__link}>Accessories</Link>
                             </li>
                         </ul>
                     </div>

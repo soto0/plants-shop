@@ -9,6 +9,8 @@ import CheckoutPage from './pages/Checkout';
 import NotFound from './components/NotFound/NotFound';
 import ShowMobile from './components/ShowMobile/ShowMobile';
 import { useEffect, useState } from 'react';
+import Popup from './components/Popups/Popup';
+import Goods from './components/Main/Goods/Goods';
 
 const App = () => {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
@@ -25,6 +27,8 @@ const App = () => {
     };
   });
 
+  const element = '<Goods Plants={undefined} GetPlants={undefined} SetNewArrivals={undefined} SetSale={undefined} PriceCount={undefined} />';
+
   return (
     <div className='App'>
       {
@@ -34,23 +38,23 @@ const App = () => {
             <Header />
             <Routes>
               <Route path='/' element={<MainPage />}>
-                <Route path='/New-Arrivals' />
-                <Route path='/Sale' />
-                <Route path='/House-Plants' />
-                <Route path='/Potter-Plants' />
-                <Route path='/Seeds' />
-                <Route path='/Small-Plants' />
-                <Route path='/Big-Plants' />
-                <Route path='/Succulents' />
-                <Route path='/Terrariums' />
-                <Route path='/Gardening' />
-                <Route path='/Accessions' />
-                <Route path='/Small' />
-                <Route path='/Medium' />
-                <Route path='/Large' />
+                <Route path='/New-Arrivals' element={element} />
+                <Route path='/Sale' element={element} />
+                <Route path='/House-Plants' element={element} />
+                <Route path='/Potter-Plants' element={element} />
+                <Route path='/Seeds' element={element} />
+                <Route path='/Small-Plants' element={element} />
+                <Route path='/Big-Plants' element={element} />
+                <Route path='/Succulents' element={element} />
+                <Route path='/Terrariums' element={element} />
+                <Route path='/Gardening' element={element} />
+                <Route path='/Accessions' element={element} />
+                <Route path='/Small' element={element} />
+                <Route path='/Medium' element={element} />
+                <Route path='/Large' element={element} />
                 <Route path='/Price/:price' />
-                <Route path='/Login' />
-                <Route path='/Register' />
+                <Route path='/Login' element={<Popup PopupActive={false} OnClickPopupButton={undefined} Error={undefined} User={undefined} />} />
+                <Route path='/Register' element={<Popup PopupActive={false} OnClickPopupButton={undefined} Error={undefined} User={undefined} />} />
               </Route>
               <Route path='/Product/:productId' element={<ProductPage />} />
               <Route path='/Shopping-Cart' element={<ShoppingCartPage />} />

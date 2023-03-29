@@ -19,6 +19,6 @@ export const getLogin = (userName: string, PopupToggle: any) => {
             });
         } catch (error) {
             console.error(error);
-        }
+        };
     };
 };

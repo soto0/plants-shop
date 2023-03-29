@@ -9,6 +9,6 @@ export const getLikesProduct = (user: string) => {
             dispatch({ type: LikesTypes.GET_LIKES_PRODUCT, likesProduct: response.data });
         } catch (error) {
             console.error(error);
-        }
+        };
     };
 };

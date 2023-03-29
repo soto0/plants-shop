@@ -11,14 +11,14 @@ interface BasketToggleProps {
     Price: number,
     GetBasketToggle: any,
     SKU: number
-}
+};
 
 const BasketToggle: FC<BasketToggleProps> = (props: BasketToggleProps) => {
     let addToBasket = () => {
-        if (props.User.length === 0) {
+        if (!props.User.userName) {
             props.SetPromptActive(true);
         } else {
-            if(!props.BasketToggleProduct[0] || props.BasketToggleProduct[0].productId !== props.Id) {
+            if (!props.BasketToggleProduct[0] || props.BasketToggleProduct[0].productId !== props.Id) {
                 addProductToBasket(props.Id, props.Title, props.Price, props.User.userName, 1, "S", props.SKU);
             } else {
                 deleteProductFromBasket(props.BasketToggleProduct[0].id);
