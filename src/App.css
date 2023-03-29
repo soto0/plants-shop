@@ -85,10 +85,16 @@ footer {
     border-bottom: 3px solid #46A358;;
 }
 
-.not__found {
+.not__found,
+.mobile {
     color: #46A358;
     margin: 0 auto;
     padding: 5% 0;
+}
+
+
+.mobile {
+    margin-top: 45vh;
 }
 
 /* buttons */
@@ -243,4 +249,12 @@ input[type=range]::-moz-range-thumb {
 
 .offer__slider {
     padding-bottom: 50px !important;
+}
+
+
+@media screen and (max-width: 950px) {
+    .not__found,
+    .mobile {
+        font-size: 25px;
+    }
 }
