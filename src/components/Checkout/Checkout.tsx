@@ -9,6 +9,7 @@ import { addOrder } from '../../api/AddOrder';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { clearBasket } from '../../api/ClearBasket';
 import { useActions } from '../../hooks/useActions';
+import OrderPopup from '../Popups/OrderPopup';
 
 const Checkout: FC = () => {
     const { User } = useTypedSelector(state => state.Login);
@@ -17,6 +18,8 @@ const Checkout: FC = () => {
     const [ orderCreate, setOrderCreate ] = useState(false);
     const { Products, TotalPrice } = useTypedSelector(state => state.ShoppingCart);
     const { getShoppingCart } = useActions();
+    const [ orderProducts, setOrderProducts ] = useState();
+    const [ orderProductsTotalPrice, setOrderProductsTotalPrice ] = useState<number>();
 
 
     const zipValidation = /^\d+$/;
@@ -57,6 +60,8 @@ const Checkout: FC = () => {
                     numberCode,
                     User.userName
                 );
+                setOrderProducts(Products);
+                setOrderProductsTotalPrice(TotalPrice);
                 setOrderCreate(true);
                 resetForm();
 
@@ -68,6 +73,7 @@ const Checkout: FC = () => {
         >
             {({ values, handleChange, handleBlur, isValid, errors }) => (
                 <Form className={s.form}>
+                    <OrderPopup OrderProducts={orderProducts} OrderProductsTotalPrice={orderProductsTotalPrice} />
                     <div className={s.form__left}>
                         <h3 className={s.title}>Billing Address</h3>
                         <div className={s.form__blocks}>
