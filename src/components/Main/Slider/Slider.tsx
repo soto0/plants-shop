@@ -22,7 +22,6 @@ const Slider: FC = () => {
                     <p className={s.slider__subtitle}>Welcome to GreenShop</p>
                     <h1 className={s.slider__title}>Let’s Make a<br />Better <span>Planet</span></h1>
                     <p className={s.slider__text}>We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle. Order your favorite plants!</p>
-                    <button className="button slider__button">SHOP NOW</button>
                 </div>
                 <div className={s.slider__right}>
                     <img src={SLiderIcon} alt="slider__icon" className={s.slider__icon} />
@@ -33,7 +32,6 @@ const Slider: FC = () => {
                     <p className={s.slider__subtitle}>Welcome to GreenShop</p>
                     <h1 className={s.slider__title}>Let’s Make a<br />Better <span>Planet</span></h1>
                     <p className={s.slider__text}>We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle. Order your favorite plants!</p>
-                    <button className="button slider__button">SHOP NOW</button>
                 </div>
                 <div className={s.slider__right}>
                     <img src={SLiderIcon} alt="slider__icon" className={s.slider__icon} />
@@ -44,7 +42,6 @@ const Slider: FC = () => {
                     <p className={s.slider__subtitle}>Welcome to GreenShop</p>
                     <h1 className={s.slider__title}>Let’s Make a<br />Better <span>Planet</span></h1>
                     <p className={s.slider__text}>We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle. Order your favorite plants!</p>
-                    <button className="button slider__button">SHOP NOW</button>
                 </div>
                 <div className={s.slider__right}>
                     <img src={SLiderIcon} alt="slider__icon" className={s.slider__icon} />

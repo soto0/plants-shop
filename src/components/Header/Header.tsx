@@ -1,4 +1,4 @@
-import {FC, useState} from 'react';
+import {FC, useEffect, useState} from 'react';
 import s from './Header.module.css';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Logo from './../../assets/images/logo.svg';
@@ -7,40 +7,32 @@ import Basket from './../../assets/images/basket.svg';
 import Login from './../../assets/images/login.svg';
 import Popup from '../Popups/Popup';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { useActions } from '../../hooks/useActions';
 
 const Header: FC = () => {
     const { BasketToggle } = useTypedSelector(state => state.Basket);
     const { IsAuth, User, Error } = useTypedSelector(state => state.Login);
     const [ popupActive, setPopupActive ] = useState(false);
     const navigate = useNavigate();
+    const { getBasketToggle } = useActions();
 
     let PopupToggle = () => {
         setPopupActive(!popupActive);
         navigate('');
     };
 
+    useEffect(() => {
+        if (User.userName) {
+            getBasketToggle(User.userName);
+        };
+    }, [User]);
+    
     return (
         <header>
             <div className="container">
                 <Link to=''>
                     <img src={Logo} alt="logo" className={s.logo} />
                 </Link>
-                <nav className={s.menu}>
-                    <ul className={s.menu__list}>
-                        <li className={s.menu__item}>
-                            <NavLink to='' className={s.menu__link}>Home</NavLink>
-                        </li>
-                        <li className={s.menu__item}>
-                            <NavLink to='Shop' className={s.menu__link}>Shop</NavLink>
-                        </li>
-                        <li className={s.menu__item}>
-                            <NavLink to='Plant-Care' className={s.menu__link}>Plant Care</NavLink>
-                        </li>
-                        <li className={s.menu__item}>
-                            <NavLink to='Blogs' className={s.menu__link}>Blogs</NavLink>
-                        </li>
-                    </ul>
-                </nav>
                 <div className={s.right__menu}>
                     <img src={Search} className={s.search} />
                     <Link to='/Shopping-Cart' className={s.basket}>

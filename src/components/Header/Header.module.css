@@ -4,24 +4,11 @@ header div:nth-child(1) {
     align-items: center;
 }
 
-.menu {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.menu__link {
-    padding-bottom: 26px;
-}
-
-.menu__list {
-    display: flex;
-    gap: 50px;
-}
-
 .right__menu {
     display: flex;
     gap: 30px;
     align-items: center;
+    margin-left: auto;
 }
 
 .search {
