@@ -36,6 +36,7 @@ const MainPage: FC = () => {
 
         checkUrl();
         getPosts();
+        getPlants();
     }, [url]);
 
     return (

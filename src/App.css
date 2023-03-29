@@ -85,6 +85,12 @@ footer {
     border-bottom: 3px solid #46A358;;
 }
 
+.not__found {
+    color: #46A358;
+    margin: 0 auto;
+    padding: 5% 0;
+}
+
 /* buttons */
 .button {
     padding: 8px 17px;

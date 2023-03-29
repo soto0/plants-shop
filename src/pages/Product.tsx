@@ -17,9 +17,9 @@ const ProductPage: FC = () => {
         getSliderPlants();
         getPlant(productId);
 
-        if(User.userName !== undefined) {
+        if(User.userName) {
             getLikesProduct(User.userName);
-        }
+        };
     }, [User, productId]);
 
     return (
