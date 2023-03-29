@@ -28,7 +28,7 @@ const App = () => {
   return (
     <div className='App'>
       {
-        window.innerWidth <= 1000 ?
+        windowSize <= 1000 ?
           <ShowMobile /> :
           <BrowserRouter>
             <Header />
