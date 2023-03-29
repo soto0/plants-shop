@@ -88,6 +88,23 @@
     color: white;
 }
 
+
+.back__order_popup {
+    display: none;
+}
+
+.back__order_popup_active {
+    top: 0;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 10;
+    background-color: black;
+    opacity: 0.25;
+}
+
 @media screen and (max-width: 1160px) {
     .form__blocks {
         grid-template-columns: repeat(2, 300px);

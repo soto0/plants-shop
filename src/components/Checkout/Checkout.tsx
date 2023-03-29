@@ -12,15 +12,15 @@ import { useActions } from '../../hooks/useActions';
 import OrderPopup from '../Popups/OrderPopup';
 
 const Checkout: FC = () => {
-    const { User } = useTypedSelector(state => state.Login);
-    const [ country, setCountry ] = useState('Select a country / region');
-    const [ numberCode, setNumberCode ] = useState('+7');
-    const [ orderCreate, setOrderCreate ] = useState(false);
-    const { Products, TotalPrice } = useTypedSelector(state => state.ShoppingCart);
     const { getShoppingCart } = useActions();
-    const [ orderProducts, setOrderProducts ] = useState();
+    const { User } = useTypedSelector(state => state.Login);
+    const { Products, TotalPrice } = useTypedSelector(state => state.ShoppingCart);
     const [ orderProductsTotalPrice, setOrderProductsTotalPrice ] = useState<number>();
-
+    const [ country, setCountry ] = useState('Select a country / region');
+    const [ orderPopupActive, setOrderPopupActive ] = useState(false); 
+    const [ orderCreate, setOrderCreate ] = useState(false);
+    const [ orderProducts, setOrderProducts ] = useState();
+    const [ numberCode, setNumberCode ] = useState('+7');
 
     const zipValidation = /^\d+$/;
     const validationSchema = yup.object().shape({
@@ -63,6 +63,7 @@ const Checkout: FC = () => {
                 setOrderProducts(Products);
                 setOrderProductsTotalPrice(TotalPrice);
                 setOrderCreate(true);
+                setOrderPopupActive(true);
                 resetForm();
 
                 Products.map((product:any) => clearBasket(product.id));
@@ -73,7 +74,13 @@ const Checkout: FC = () => {
         >
             {({ values, handleChange, handleBlur, isValid, errors }) => (
                 <Form className={s.form}>
-                    <OrderPopup OrderProducts={orderProducts} OrderProductsTotalPrice={orderProductsTotalPrice} />
+                    <OrderPopup 
+                        OrderProducts={orderProducts} 
+                        OrderProductsTotalPrice={orderProductsTotalPrice} 
+                        SetOrderPopupActive={setOrderPopupActive}
+                        OrderPopupActive={orderPopupActive}
+                    />
+                    <div className={orderPopupActive ? s.back__order_popup_active : s.back__order_popup} onClick={() => {setOrderPopupActive(false)}}></div>
                     <div className={s.form__left}>
                         <h3 className={s.title}>Billing Address</h3>
                         <div className={s.form__blocks}>
